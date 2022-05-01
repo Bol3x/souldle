@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    color:white;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('../../Assets/[svg]background.svg');
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: rgb(0,0,0);
+	color: white;
+}
+
+#menubtn{
+    width: 50px;
+    height: 50px;
+	background-color: transparent;
+	background: url('../../Assets/Buttons/menu.svg') no-repeat;
+	background-size: contain;
+	background-position: center;
+	border: none;
+    position: absolute;
+    top:0;
+    left:0;
+	cursor: pointer;
+}
