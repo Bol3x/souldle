@@ -1,0 +1,51 @@
+body{
+	text-align: center;
+	background-image: url('[svg]background.svg');
+    	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover; 
+}
+.Bossbox{
+	height: 640;
+	width: 960;
+	display: inline-block;
+}
+#skullhead {
+	position: relative;
+	display: inline-block;
+	top: 200px;
+	left: 100px;
+	offset-path: path('M0 0 50 50 100 0 50 -50 -50 50 -100 0 -50 -50 0 0');
+	offset-distance: 0;
+	offset-rotate: 0deg;
+	animation: move 2000ms infinite linear;
+}
+
+@keyframes move {
+	to{offset-distance: 100%;}
+}
+
+@keyframes handshake {
+	from{transform: rotate(0deg);}
+	25%{transform: rotate(45deg);}
+	50%{transform: rotate(0deg);}
+	75%{transform: rotate(-45deg);}
+	to{transform: rotate(0deg);}
+}
+#lefthand{
+	position: relative;
+	display: inline-block;
+	float: left;
+	top: 100px;
+	left: 200px;
+	animation: handshake 2000ms infinite linear;
+}
+#righthand{
+	position: relative;
+	display: inline-block;
+	float: right;
+	top: 100px;
+	right: 200px;
+	animation: handshake 2000ms infinite linear;
+}
+
