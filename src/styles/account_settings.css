@@ -1,19 +1,3 @@
-*{
-	box-sizing: border-box;
-	list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-	background-attachment: fixed;
-	background-color: rgb(0,0,0);
-	background-image: url('[svg]background.svg');
-    background-repeat: no-repeat;
-	background-size: cover;
-	color: white;	
-}
-
 a:hover {
 	color : blue;
 	text-decoration : underline;
@@ -24,7 +8,7 @@ a:link {
   text-decoration: none;
 }
 
-button {
+#menu {
 	background-color: grey;
 	border: outset;
     border-radius: 4px;
@@ -38,9 +22,38 @@ button {
 	width: 75px;
 }
 
+#login{
+	background-color: grey;
+	border: inset green;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-family : "Papyrus";
+    margin: 8px 0;
+    padding: 14px 20px;
+    width: 200px;
+	
+}
+
+#DeleteAcc{
+	display: none;
+}
+
+#delete{
+	background-color: grey;
+	border: inset red;
+    border-radius: 4px;
+    color: red;
+    cursor: pointer;
+    font-family : "Papyrus";
+    margin: 8px 0;
+    padding: 14px 20px;
+    width: 200px;
+}
+
 h1{
 	font-family : "Papyrus";
-	font-size: 100px;
+	font-size: 50px;
 	font-weight: bold;
 	letter-spacing: 10 px;
 	margin: 0 0 17px 0;
