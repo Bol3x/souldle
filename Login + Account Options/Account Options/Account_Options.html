@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Account Options Page</title>
+		<link rel = "stylesheet" href = "styles.css">
+    </head>
+
+    <body>
+	<div class ="main">
+		<div id ="menuButton"> 
+			<button id = "menu"> Menu </button>
+		</div>
+				
+		<h1>Account Options</h1>
+		
+		<div id = "DeleteAcc">
+		    <form action = "login.html" onSubmit = "return checkForm()">
+			<input type="password" placeholder="Enter Password" name="psw" required><br>
+
+			
+			<button type="submit" id ="deleteAcc"> Delete </button>
+			<button type="button" id ="close" onclick = "closeForm()"> Close </button>
+			
+			</form>
+		</div>
+		
+		<div class = "login">
+			<form action = "index.html" onSubmit = "return checkForm()">
+		
+			<label for = "Username">Change Username </label>
+				<input type = "text" id = "user" required><br>
+			
+			<label for = "Password">Change Password </label>
+				<input type = "text" id = "pass" required><br><br>
+		
+		
+				<input type = "submit" value = "Submit"><br><br>
+					<a href="Login.html"> <button id="login">Logout</button></a> 
+				<button id="delete" onclick="openForm()">Delete Account</button>
+			</form>
+		</div>
+	</div>
+		
+	<script>
+	function openForm() {
+	  document.getElementById("DeleteAcc").style.display = "block";
+	}
+
+	function closeForm() {
+	  document.getElementById("DeleteAcc").style.display = "none";
+	}
+	</script>
+
+    </body>
+</html>

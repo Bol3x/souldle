@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<script>
+			function checkForm()
+			{
+				var user = document.getElementById("user").value;
+				var pass = document.getElementById("pass").value;
+
+				var valid = false;		
+				var all_fields = true;
+
+				if (user == "")
+				{
+					all_fields = false;
+					document.getElementById("user").style.backgroundColor = "red";
+				}
+				else
+					document.getElementById("user").style.backgroundColor = "white";
+
+				if (pass == "")
+				{
+					all_fields = false;
+					document.getElementById("pass").style.backgroundColor = "red";
+				}
+				else
+					document.getElementById("pass").style.backgroundColor = "white";
+
+				if (all_fields == true)
+				{
+					valid = true;
+				}
+				
+				return valid;
+					
+			}	
+		</script>
+	
+        <title> Login Page </title>
+		<link rel = "stylesheet" href = "login.css">
+		
+    </head>
+
+    <body>
+	<div class ="main">
+		<div class ="menuButton"> 
+			<button type = "button"> Menu </button>
+		</div>
+		
+		<h1>Souldle</h1>
+		
+		<div class = "login">
+			<form action = "https://www.pixiv.net/en/artworks/96793929" onSubmit = "return checkForm()">
+			
+				<label for = "Username">Username </label>
+					<input type = "text" id = "user"><br>
+				
+				<label for = "Password">Password </label>
+					<input type = "text" id = "pass"><br><br>
+				
+					<input type = "submit" value = "Submit"><br><br>
+			</form>			
+		</div>
+	</div>
+    </body>
+</html>
