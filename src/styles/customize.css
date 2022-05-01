@@ -24,7 +24,8 @@
     padding: 15px 15px 0 15px;
     margin-bottom: 20px;
     box-sizing: content-box;
-    border: 1px solid rgb(100, 100, 100);
+    border: 3px solid rgb(100, 100, 100);
+    border-radius: 10px;
 }
 
 .gridbox{
@@ -33,6 +34,9 @@
     white-space: nowrap;
     margin-left: 60px;
     margin-right: 60px;
+    padding: 20px;
+    border: 10px solid rgb(70, 215, 235);
+    border-radius: 20px;
 }
 
 .item{
