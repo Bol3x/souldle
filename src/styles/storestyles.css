@@ -1,0 +1,59 @@
+.entirepage{
+	margin: 40px auto 60px;
+	width: 805px;
+	font-family: "Garamond";
+}
+
+h1{
+	margin: 0 0 17px 0;
+	padding: 0 0 17px 0;
+	font-size: 43px;
+	font-weight: bold;
+	letter-spacing:-3px;
+}
+.header{
+	display: flex;
+}
+#menubtn{
+    width: 50px;
+    height: 50px;
+	background-color: transparent;
+	background: url("menu.svg") no-repeat;
+	background-size: contain;
+	background-position: center;
+	border: none;
+    position: absolute;
+    top:0;
+    left:0;
+	cursor:pointer;
+}
+h1{
+	width: 400;
+}
+#soulcount{
+	text-align: right;
+}
+img{
+	height: 100px;
+	width: 100px;
+	margin: 0 0 0 0;
+	padding: 0;
+}
+.item{
+    background: rgb(75, 75, 100);
+    border: 3px solid rgb(100,100,100);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    padding: 0;
+    text-align: center;
+    width: 195px;
+    height: 195px;
+    overflow: hidden;
+}
+.break{ 
+clear: both; 
+}
+dd.break { 
+float: none; margin: 0; height: 15px; 
+}
