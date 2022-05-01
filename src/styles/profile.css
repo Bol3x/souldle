@@ -1,0 +1,60 @@
+#area{
+    display: flex;
+}
+
+#left{
+    padding: 30px;
+    justify-content: center;
+}
+
+#return{
+    width: 293px;
+    height: 40px;
+    text-align: center;
+	color: white;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#avatar{
+	height: 303px;
+	width: 293px;
+	float: left;
+    padding: 15px 15px 0 15px;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+}
+#entirepage{
+	margin: 40px auto 60px;
+	width: 805px;
+	font-family: "Garamond";
+}
+
+h1{
+	background-image: url('../../Assets/[svg]textbox.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 43px;
+	font-weight: bold;
+}
+.statistics{
+	background-image: url('../../Assets/[svg]textbox.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 170px;
+	width: 300px;
+	margin: 40 0 40 40;
+	text-align:center;
+	float: right;
+	font-size: 36px;
+	font-style: bold;
+	color: white;
+}
+
+.break{ 
+clear: both; 
+}
+dd.break { 
+float: none; margin: 0; height: 15px; 
+}
