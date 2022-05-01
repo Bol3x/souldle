@@ -1,61 +1,82 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="styles/theme.css">
-        <link rel="stylesheet" href="styles/search.css">
-    </head>
+	<head>
+		<link rel="stylesheet" href="styles/theme.css">
+		<link rel="stylesheet" href="styles/search.css">
+		<link rel="stylesheet" href="styles/menubtn.css">
+	</head>
 
-    <body>
-        <header>
-            <button id="menubtn"></button>
-        </header>
-        <div id="area">
-            <div id="userbox">
-                <div id="top">
-                    <h1 id="title">Search User</h1>
-                    <form id="searchbar">
-                        <input type="text" id="username" placeholder="Enter Username"><br>
-                    </form>
-                </div>
+	<body>
+		<header>
+			<div id="sidebar">
+				<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
 
-                <!--User list-->
-                <ul>
-                    <li>
-                        <button class="user">
-                            <img src="../Assets/[svg]avatar.svg" class="icon">
-                            <p class="username">Bolex</p>
-                        </button>
-                    </li>
-                    <div class="break"></div>
-                    <li>
-                        <button class="user">
-                            <img src="../Assets/[svg]avatar.svg" class="icon">
-                            <p class="username">GreenPLDN</p>
-                        </button>
-                    </li>
-                    <div class="break"></div>
-                    <li>
-                        <button class="user">
-                            <img src="../Assets/[svg]avatar.svg" class="icon">
-                            <p class="username">xXxBurankuxXx</p>
-                        </button>
-                    </li>
-                    <div class="break"></div>
-                    <li>
-                        <button class="user">
-                            <img src="../Assets/[svg]avatar.svg" class="icon">
-                            <p class="username">Mag1c</p>
-                        </button>
-                    </li>
-                    <div class="break"></div>
-                    <li>
-                        <button class="user">
-                            <img src="../Assets/[svg]avatar.svg" class="icon">
-                            <p class="username">Ice</p>
-                        </button>
-                    </li>
-                    <div class="break"></div>
-                </ul>
-            </div>
-        </div> 
-    </body>
+				<a href="index.html">Play Game</a>
+				<a href="store.html">Store</a>
+				<a href="profile.html">My Profile</a>
+				<a href="search-user.html">Search Players</a>
+			</div>
+
+			<button id="menubtn" onclick="openBar()"></button>
+		</header>
+		
+		<div id="area">
+			<div id="userbox">
+				<div id="top">
+					<h1 id="title">Search User</h1>
+					<form id="searchbar">
+						<input type="text" id="username" placeholder="Enter Username"><br>
+					</form>
+				</div>
+
+				<!--User list-->
+				<ul>
+					<li>
+						<a href="profile.html" class="user">
+							<img src="../Assets/[svg]avatar.svg" class="icon">
+							<p class="username">Bolex</p>
+						</a>
+					</li>
+					<div class="break"></div>
+					<li>
+						<a href="profile.html" class="user">
+							<img src="../Assets/[svg]avatar.svg" class="icon">
+							<p class="username">GreenPLDN</p>
+						</a>
+					</li>
+					<div class="break"></div>
+					<li>
+						<a href="profile.html" class="user">
+							<img src="../Assets/[svg]avatar.svg" class="icon">
+							<p class="username">xXxBurankuxXx</p>
+						</a>
+					</li>
+					<div class="break"></div>
+					<li>
+						<a href="profile.html" class="user">
+							<img src="../Assets/[svg]avatar.svg" class="icon">
+							<p class="username">Mag1c</p>
+						</a>
+					</li>
+					<div class="break"></div>
+					<li>
+						<a href="profile.html" class="user">
+							<img src="../Assets/[svg]avatar.svg" class="icon">
+							<p class="username">Ice</p>
+						</a>
+					</li>
+					<div class="break"></div>
+				</ul>
+			</div>
+		</div> 
+
+		<script>
+			function openBar(){
+				document.getElementById("sidebar").style.width = "250px";
+			}
+			function closeBar(){
+				document.getElementById("sidebar").style.width = "0";
+			}
+		</script>
+
+	</body>
 </html>

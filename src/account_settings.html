@@ -5,53 +5,70 @@
         <title> Account Options Page</title>
 		<link rel = "stylesheet" href = "styles/theme.css">
 		<link rel = "stylesheet" href = "styles/account_settings.css">
+		<link rel="stylesheet" href="styles/menubtn.css">
     </head>
 
     <body>
-	<div class ="main">
-		<div id ="menuButton"> 
-			<button id = "menu"> Menu </button>
-		</div>
+		<div class ="main">
+			<header>
+				<div id="sidebar">
+					<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
+	
+					<a href="index.html">Play Game</a>
+					<a href="store.html">Store</a>
+					<a href="profile.html">My Profile</a>
+					<a href="search-user.html">Search Players</a>
+				</div>
+	
+				<button id="menubtn" onclick="openBar()"></button>
+			</header>
+					
+			<h1>Account Options</h1>
+			
+			<div id = "DeleteAcc">
+				<form action = "login.html" onSubmit = "checkForm()">
+				<input type="password" placeholder="Enter Password" name="psw" required><br>
+
 				
-		<h1>Account Options</h1>
-		
-		<div id = "DeleteAcc">
-		    <form action = "login.html" onSubmit = "checkForm()">
-			<input type="password" placeholder="Enter Password" name="psw" required><br>
-
+				<button type="submit" id ="deleteAcc"> Delete </button>
+				<button type="button" id ="close" onclick = "closeForm()"> Close </button>
+				
+				</form>
+			</div>
 			
-			<button type="submit" id ="deleteAcc"> Delete </button>
-			<button type="button" id ="close" onclick = "closeForm()"> Close </button>
+			<div class = "login">
+				<form action = "index.html" onSubmit = "checkForm()">
 			
-			</form>
+				<label for = "Username">Change Username </label>
+					<input type = "text" id = "user" required><br>
+				
+				<label for = "Password">Change Password </label>
+					<input type = "text" id = "pass" required><br><br>
+			
+			
+					<input type = "submit" value = "Submit"><br><br>
+						<a href="Login.html"> <button id="login">Logout</button></a> 
+					<button id="delete" onclick="openForm()">Delete Account</button>
+				</form>
+			</div>
 		</div>
 		
-		<div class = "login">
-			<form action = "index.html" onSubmit = "checkForm()">
-		
-			<label for = "Username">Change Username </label>
-				<input type = "text" id = "user" required><br>
-			
-			<label for = "Password">Change Password </label>
-				<input type = "text" id = "pass" required><br><br>
-		
-		
-				<input type = "submit" value = "Submit"><br><br>
-					<a href="Login.html"> <button id="login">Logout</button></a> 
-				<button id="delete" onclick="openForm()">Delete Account</button>
-			</form>
-		</div>
-	</div>
-		
-	<script>
-	function openForm() {
-	  document.getElementById("DeleteAcc").style.display = "block";
-	}
+		<script>
+		function openForm() {
+		document.getElementById("DeleteAcc").style.display = "block";
+		}
 
-	function closeForm() {
-	  document.getElementById("DeleteAcc").style.display = "none";
-	}
-	</script>
+		function closeForm() {
+		document.getElementById("DeleteAcc").style.display = "none";
+		}
+
+		function openBar(){
+			document.getElementById("sidebar").style.width = "250px";
+		}
+		function closeBar(){
+			document.getElementById("sidebar").style.width = "0";
+		}
+		</script>
 
     </body>
 </html>
