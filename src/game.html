@@ -1,0 +1,67 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="styles/gamepage.css">
+	<link rel="stylesheet" href="styles/menubtn.css">
+	<title> Souldle </title>
+	</head>
+	<body>
+		<header>
+			<div id="sidebar">
+				<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
+
+				<a href="game.html">Play Game</a>
+				<a href="store.html">Store</a>
+				<a href="profile.html">My Profile</a>
+				<a href="search-user.html">Search Players</a>
+				<a href="account_settings.html" id="setting">Account Settings</a>
+			</div>
+
+			<button id="menubtn" onclick="openBar()"></button>
+		</header>
+
+		<div class="Bossbox">
+			<div id="skullhead"><img src="../Assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
+			<div id="hands">
+				<div id="lefthand">
+					<img src="../Assets/Boss/SkelHandLeft.svg" alt="LH" width="120" height="110">
+				</div>
+				<div id="righthand">
+					<img src="../Assets/Boss/SkelHandRight.svg" alt="RH" width="120" height="110">
+				</div>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div class="breakdiv"></div>
+
+		<div class="playbox">
+			<div class="iconbar" id="message">
+				<div class="iconbox" id="msg1"></div>
+				<div class="iconbox" id="msg2"></div>
+				<div class="iconbox" id="msg3"></div>
+				<div class="iconbox" id="msg4"></div>
+				<div class="iconbox" id="msg5"></div>
+			</div>
+			<div class="breakdiv"></div>
+			<div class="iconbar" id="choice">
+				<div class="iconbox" id="c1"></div>
+				<div class="iconbox" id="c2"></div>
+				<div class="iconbox" id="c3"></div>
+				<div class="iconbox" id="c4"></div>
+				<div class="iconbox" id="c5"></div>
+			</div>
+		</div>
+
+		<div class="divider"></div>
+		<div class="breakdiv"></div>
+
+
+		<script>
+            function openBar(){
+                document.getElementById("sidebar").style.width = "250px";
+            }
+            function closeBar(){
+                document.getElementById("sidebar").style.width = "0";
+            }
+        </script>
+	</body>
+</html>

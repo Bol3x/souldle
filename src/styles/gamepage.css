@@ -1,15 +1,30 @@
 body{
+	width: 800px;	
+	margin:auto;
 	text-align: center;
 	background-image: url('../../Assets/[svg]background.svg');
     	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover; 
 }
+
+.breakdiv{
+	clear:both;
+}
+
+.divider{
+	height:3px;
+	width: 100%;
+	margin:auto;
+	background-color: aqua;
+}
+
 .Bossbox{
-	height: 640;
-	width: 960;
+	height: 500px;
 	display: inline-block;
 }
+
+
 #skullhead {
 	position: relative;
 	display: inline-block;
@@ -18,7 +33,7 @@ body{
 	offset-path: path('M0 0 50 50 100 0 50 -50 -50 50 -100 0 -50 -50 0 0');
 	offset-distance: 0;
 	offset-rotate: 0deg;
-	animation: move 2000ms infinite linear;
+	animation: move 2s infinite linear;
 }
 
 @keyframes move {
@@ -35,7 +50,6 @@ body{
 #lefthand{
 	position: relative;
 	display: inline-block;
-	float: left;
 	top: 100px;
 	left: 200px;
 	animation: handshake 2000ms infinite linear;
@@ -43,9 +57,28 @@ body{
 #righthand{
 	position: relative;
 	display: inline-block;
-	float: right;
 	top: 100px;
 	right: 200px;
 	animation: handshake 2000ms infinite linear;
 }
 
+.playbox{
+	width:83%;
+	margin:auto;
+}
+
+.iconbar{
+	height:130px;
+	padding: 10px;
+}
+
+.iconbox{
+    background-color: rgba(129, 129, 129, 0.418);
+    border: 3px solid rgb(61, 61, 61);
+	border-radius: 3px;
+    padding: 0;
+	float:left;
+	margin: 10px 10px;
+    width: 100px;
+    height: 100px;
+}
