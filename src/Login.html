@@ -40,29 +40,29 @@
         <title> Login Page </title>
 		<link rel="stylesheet" href="styles/theme.css">
 		<link rel = "stylesheet" href = "styles/login.css">
+
+
 		
     </head>
 
     <body>
-	<div class ="main">
-		<div class ="menuButton"> 
-			<button type = "button"> Menu </button>
-		</div>
-		
-		<h1>Souldle</h1>
-		
-		<div class = "login">
-			<form action = "https://www.pixiv.net/en/artworks/96793929" onSubmit = "checkForm()">
+		<div class="main">
+			<h1>Souldle</h1>
 			
-				<label for = "Username">Username </label>
-					<input type = "text" id = "user"><br>
+			<div class = "login">
+				<form onSubmit = "checkForm()">
 				
-				<label for = "Password">Password </label>
-					<input type = "text" id = "pass"><br><br>
+					<label for = "Username">Username </label>
+						<input type = "text" id = "user"><br>
+					
+					<label for = "Password">Password </label>
+						<input type = "text" id = "pass"><br><br>
+					
+						<input type = "submit" value = "Log-In"><br><br>
+				</form>
 				
-					<input type = "submit" value = "Submit"><br><br>
-			</form>			
+				<a href="register.html"> Don't have an account? Register</a>
+			</div>
 		</div>
-	</div>
     </body>
 </html>
