@@ -26,3 +26,11 @@ button{
 button:active{
     background-color: rgb(41, 41, 41);
 }
+
+.smalltext{
+	font-size:15px;
+}
+
+#no-account{
+	color:red;
+}

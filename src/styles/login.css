@@ -43,3 +43,11 @@ a:hover {
 	color : blue;
 	text-decoration : underline;
 }
+
+.smalltext{
+	font-size:15px;
+}
+
+#no-account{
+	color:red;
+}
