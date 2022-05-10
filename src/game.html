@@ -1,71 +1,74 @@
 <html>
 	<head>
-	<link rel="stylesheet" href="styles/gamepage.css">
-	<link rel="stylesheet" href="styles/menubtn.css">
+		<link rel="stylesheet" href="styles/theme.css">
+		<link rel="stylesheet" href="styles/gamepage.css">
+		<link rel="stylesheet" href="styles/menubtn.css">
 	<title> Souldle </title>
 	</head>
 	<body>
-		<header>
-			<div id="sidebar">
-				<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
+		<div id="content">
+			<header>
+				<div id="sidebar">
+					<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
 
-				<a href="game.html">Play Game</a>
-				<a href="store.html">Store</a>
-				<a href="profile.html">My Profile</a>
-				<a href="search-user.html">Search Players</a>
-				<a href="account_settings.html" id="setting">Account Settings</a>
-			</div>
-
-			<button id="menubtn" onclick="openBar()"></button>
-		</header>
-
-		<div class="Bossbox">
-			<div id="skullhead"><img src="../Assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
-			<div id="hands">
-				<div id="lefthand">
-					<img src="../Assets/Boss/SkelHandLeft.svg" alt="LH" width="120" height="110">
+					<a href="game.html">Play Game</a>
+					<a href="store.html">Store</a>
+					<a href="profile.html">My Profile</a>
+					<a href="search-user.html">Search Players</a>
+					<a href="account_settings.html" id="setting">Account Settings</a>
 				</div>
-				<div id="righthand">
-					<img src="../Assets/Boss/SkelHandRight.svg" alt="RH" width="120" height="110">
+
+				<button id="menubtn" onclick="openBar()"></button>
+			</header>
+
+			<div class="Bossbox">
+				<div id="skullhead"><img src="../Assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
+				<div id="hands">
+					<div id="lefthand">
+						<img src="../Assets/Boss/SkelHandLeft.svg" alt="LH" width="120" height="110">
+					</div>
+					<div id="righthand">
+						<img src="../Assets/Boss/SkelHandRight.svg" alt="RH" width="120" height="110">
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="divider"></div>
-		<div class="breakdiv"></div>
-
-		<div class="playbox">
-			<div class="iconbar" id="message">
-				<div class="iconbox" id="msg1"></div>
-				<div class="iconbox" id="msg2"></div>
-				<div class="iconbox" id="msg3"></div>
-				<div class="iconbox" id="msg4"></div>
-				<div class="iconbox" id="msg5"></div>
-			</div>
+			<div class="divider"></div>
 			<div class="breakdiv"></div>
-			<div class="iconbar" id="choice">
-				<div class="iconbox" id="c1"></div>
-				<div class="iconbox" id="c2"></div>
-				<div class="iconbox" id="c3"></div>
-				<div class="iconbox" id="c4"></div>
-				<div class="iconbox" id="c5"></div>
+
+			<div class="playbox">
+				<div class="iconbar" id="message">
+					<div class="iconbox" id="msg1"></div>
+					<div class="iconbox" id="msg2"></div>
+					<div class="iconbox" id="msg3"></div>
+					<div class="iconbox" id="msg4"></div>
+					<div class="iconbox" id="msg5"></div>
+				</div>
+				<div class="breakdiv"></div>
+				<div class="iconbar" id="choice">
+					<div class="iconbox" id="c1"></div>
+					<div class="iconbox" id="c2"></div>
+					<div class="iconbox" id="c3"></div>
+					<div class="iconbox" id="c4"></div>
+					<div class="iconbox" id="c5"></div>
+				</div>
 			</div>
-		</div>
 
-		<div class="divider"></div>
-		<div class="breakdiv"></div>
+			<div class="divider"></div>
+			<div class="breakdiv"></div>
 
-		<div class = "actionbox">
-			<div class = "actions">
-				<button class = "button" id = "a"> <img src = "../Assets/Icons/AttackIcon.svg" alt = "Attack" width = "100" height = "100"> </button>
-				<button class = "button" id = "b"> <img src = "../Assets/Icons/DefendIcon.svg" alt = "Defend" width = "100" height = "100"> </button>
-				<button class = "button" id = "c"> <img src = "../Assets/Icons/DodgeIcon.svg"  alt = "Dodge"  width = "100" height = "100"> </button>
-				<button class = "button" id = "d"> <img src = "../Assets/Icons/MagicIcon.svg"  alt = "Magic"  width = "100" height = "100"> </button>
-				<button class = "button" id = "e"> <img src = "../Assets/Icons/PotionIcon.svg" alt = "Potion" width = "100" height = "100"> </button>
-            </div>
+			<div class = "actionbox">
+				<div class = "actions">
+					<button class = "button" id = "a"> <img src = "../Assets/Icons/AttackIcon.svg" alt = "Attack" width = "100" height = "100"> </button>
+					<button class = "button" id = "b"> <img src = "../Assets/Icons/DefendIcon.svg" alt = "Defend" width = "100" height = "100"> </button>
+					<button class = "button" id = "c"> <img src = "../Assets/Icons/DodgeIcon.svg"  alt = "Dodge"  width = "100" height = "100"> </button>
+					<button class = "button" id = "d"> <img src = "../Assets/Icons/MagicIcon.svg"  alt = "Magic"  width = "100" height = "100"> </button>
+					<button class = "button" id = "e"> <img src = "../Assets/Icons/PotionIcon.svg" alt = "Potion" width = "100" height = "100"> </button>
+				</div>
+			</div>
+			
+			<div class="divider"></div>
+			<div class="breakdiv"></div>
 		</div>
-		
-		<div class="divider"></div>
-		<div class="breakdiv"></div>
 		
 		<script>
             function openBar(){

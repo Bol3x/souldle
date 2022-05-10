@@ -1,11 +1,6 @@
-body{
-	width: 800px;	
+#content{
+	width: 800px;
 	margin:auto;
-	text-align: center;
-	background-image: url('../../Assets/[svg]background.svg');
-    	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover; 
 }
 
 .breakdiv{
@@ -23,6 +18,7 @@ body{
 	height: 500px;
 	display: inline-block;
 }
+
 #skullhead {
 	position: relative;
 	display: inline-block;
@@ -62,7 +58,7 @@ body{
 }
 
 .playbox{
-	width:83%;
+	width:80%;
 	margin:auto;
 }
 
@@ -108,6 +104,4 @@ body{
 
 .button[id = "e"]:hover {
   background-color: orchid;
-}
-
 }
