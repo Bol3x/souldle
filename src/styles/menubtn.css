@@ -30,7 +30,7 @@
     padding: 8px 8px 8px 20px;
     text-decoration: none;
     text-align: left;
-    font-size: 30px;
+    font-size: 25px;
     color: whitesmoke;
     display: block;
     white-space: nowrap;
@@ -39,6 +39,7 @@
 
 #exitbtn{
     position: absolute;
+    font-weight: bold;
     right: 10px;
     top: 0;
 }
