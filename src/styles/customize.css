@@ -52,6 +52,11 @@
     overflow: hidden;
 }
 
+.item img{
+    width:90px;
+    height:90px;
+}
+
 .item:hover{
     cursor: pointer;
     background-color: rgb(223, 223, 223);
