@@ -41,15 +41,14 @@
 	75%{transform: rotate(-45deg);}
 	to{transform: rotate(0deg);}
 }
-#lefthand{
+#righthand{
 	position: relative;
 	display: inline-block;
-	float: left;
 	top: 100px;
 	left: 200px;
 	animation: handshake 2000ms infinite linear;
 }
-#righthand{
+#lefthand{
 	position: relative;
 	display: inline-block;
 	top: 100px;
