@@ -3,7 +3,9 @@
 		<link rel="stylesheet" href="styles/theme.css">
 		<link rel="stylesheet" href="styles/gamepage.css">
 		<link rel="stylesheet" href="styles/menubtn.css">
-	<title> Souldle </title>
+		<title> Souldle </title>
+
+		<script src="scripts/gamescript.js"></script>
 	</head>
 	<body>
 		<div id="content">
@@ -20,6 +22,7 @@
 
 			<button id="menubtn" onclick="openBar()"></button>
 		</header>
+		<script src="scripts/menubtn.js"></script>
 
 		<div class="Bossbox">
 			<div id="skullhead"><img src="../Assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
@@ -69,13 +72,5 @@
 			<div class="breakdiv"></div>
 		</div>
 		
-		<script>
-            function openBar(){
-                document.getElementById("sidebar").style.width = "250px";
-            }
-            function closeBar(){
-                document.getElementById("sidebar").style.width = "0";
-            }
-        </script>
 	</body>
 </html>
