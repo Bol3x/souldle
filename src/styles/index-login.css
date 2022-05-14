@@ -1,0 +1,79 @@
+body{
+    width: 1000px;
+}
+
+#game{
+    width:100%;
+    margin:auto;
+}
+
+#game input{
+    width: 300px;
+    height: 50px;
+    color:black;
+}
+
+#cooldown_timer p{
+    color: cyan;
+    font-size: 30px;
+}
+#cooldown_timer #try{
+    font-size:20px;
+    color:red;
+}
+
+#skullhead{
+    offset-rotate: 0deg;
+    animation:none;
+}
+
+#lefthand{
+    offset-rotate:45deg;
+    animation:none;
+}
+
+#righthand{
+    offset-rotate:-45deg;
+    animation:none;
+}
+
+.Bossbox{
+    height:420px;
+    filter: brightness(30%);
+}
+
+#customize{
+    padding-top:50px;
+    width:50%;
+    float:left;
+}
+
+#socials{
+    padding-top:50px;
+    width:50%;
+    float:right;
+}
+
+.break{
+    clear:both;
+}
+
+.optionbox{
+    position:relative;
+    height:300px;
+}
+
+.optionbox input{
+    position:absolute;
+    color:black;
+    width:100px;
+    height:50px;
+    bottom:0;
+    left: 200px;
+}
+
+#playersearch input{
+    color:black;
+    width:100px;
+    height: 50px;
+}
