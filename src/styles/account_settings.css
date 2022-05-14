@@ -8,47 +8,28 @@ a:link {
   text-decoration: none;
 }
 
-#menu {
+button, #submitform{
 	background-color: grey;
-	border: outset;
     border-radius: 4px;
-	color: white;
-    cursor: pointer;
-	font-family : "Papyrus";
-	height: 50px;
-	left:0;
-	position: absolute;
-    top:0;
-	width: 75px;
-}
-
-#login{
-	background-color: grey;
-	border: inset green;
-    border-radius: 4px;
-    color: white;
     cursor: pointer;
     font-family : "Papyrus";
     margin: 8px 0;
     padding: 14px 20px;
     width: 200px;
-	
 }
 
-#DeleteAcc{
-	display: none;
+#logoutbtn{
+	border: inset green;
+    color: white;
 }
 
 #delete{
-	background-color: grey;
+	display: none;
+}
+
+#openDelete{
 	border: inset red;
-    border-radius: 4px;
     color: red;
-    cursor: pointer;
-    font-family : "Papyrus";
-    margin: 8px 0;
-    padding: 14px 20px;
-    width: 200px;
 }
 
 h1{
@@ -62,22 +43,15 @@ h1{
 }
 
 input[type=submit] {
-	background-color: grey;
 	border: inset;
-    border-radius: 4px;
     color: white;
-    cursor: pointer;
-    font-family : "Papyrus";
-    margin: 8px 0;
-    padding: 14px 20px;
-    width: 200px;
 }
 
 input[type=text]{ color: black; }
 
 label:after { content: ": " }
 
-.login {
+form {
 	font-family : "Papyrus";
 	font-size: 50px;
  	text-align: center;
