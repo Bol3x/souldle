@@ -20,6 +20,8 @@ input[type=submit] {
     width: 200px;
 }
 
+input[type=text]{ color: black; }
+
 label:after { content: ": " }
 
 .login {
