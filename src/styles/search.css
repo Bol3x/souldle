@@ -30,6 +30,7 @@
     right:0;
     bottom: 0;
     background-color: lightgray;
+    color:black;
 }
 
 .user{
@@ -41,6 +42,7 @@
     border: 5px solid rgb(141, 141, 141);
     border-radius: 20px;
     background-color: rgb(29, 29, 29);
+    font-family: sans-serif;
 }
 
 .user:hover{
