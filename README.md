@@ -1,6 +1,7 @@
 # Souldle
  Souldle web game
- Members:
- Jan Carlo Roleda
- Shane Owen Uy
- John Paul Pangan
+ <br><br>
+ Members: <br>
+ Jan Carlo Roleda <br>
+ Shane Owen Uy <br>
+ John Paul Pangan <br>
