@@ -4,27 +4,59 @@
 	<link rel="stylesheet" href="styles/theme.css">
 	<link rel="stylesheet" href="styles/gamepage.css">
 	<link rel="stylesheet" href="styles/menubtn.css">
+	<link rel="stylesheet" href="styles/helpmodal.css">
 	<title> Souldle </title>
 
-	<script src="scripts/menubtn.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="scripts/menubtn.js"></script>
 </head>
 
 <body>
+	<header>
+		<button id="menubtn" onclick="openBar()"></button>
+		<div id="sidebar">
+			<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
+
+			<a href="game.html">Play Game</a>
+			<a href="store.html">Store</a>
+			<a href="profile.html">My Profile</a>
+			<a href="search-user.html">Search Players</a>
+			<a href="account_settings.html" id="setting">Account Settings</a>
+		</div>
+
+		<button class="helpbtn">&quest;</button>
+	</header>
+
+	<div class="help-modal hidden">
+		<div class="modal-header">
+			<div class="modal-title">Help</div>
+			<button id="closebtn">&times;</button>
+		</div>
+		<div class="modal-body">
+			<p id="help1">
+				Welcome to <span style="color:cyan">Souldle</span>, a Wordle-inspired web game where you must 
+				defeat the Skeleton Lord with a precise combination of moves. 
+				One misstep and the skeleton lord defeats you, so make each move count!
+			</p>
+			<p id="help2">
+				To aid you in your battle, a sequence from a previous player 
+				is granted as a message for you as a guide to make the right decision.
+				In the first row, correct moves in the right position are shown with a 
+				<span style="color:cyan">blue</span> background, so use that to your advantage!
+			</p>
+			<p id="help3">
+				To remove any of your moves, simply click the square of the move you would like to change.
+				When you have prepared your moves and are ready to face the boss, <strong>click your avatar</strong> to engage combat.
+			</p>
+		</div>
+		<div id="helpnav">
+			<button id ="backbtn"><</button>
+			<button id ="nextbtn">></button>
+		</div>
+	</div>
+	<script src="scripts/helpbtn.js" type="text/javascript"></script>
+
 	<div id="content">
-		<header>
-			<div id="sidebar">
-				<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
-
-				<a href="index.html">Home</a>
-				<a href="store.html">Store</a>
-				<a href="profile.html">My Profile</a>
-				<a href="search-user.html">Search Players</a>
-				<a href="account_settings.html" id="setting">Account Settings</a>
-			</div>
-
-			<button id="menubtn" onclick="openBar()"></button>
-		</header>
-
 		<div class="Bossbox">
 			<div id="skullhead"><img src="../Assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
 			<div id="hands">
@@ -36,7 +68,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="divider"></div>
 		<div class="breakdiv"></div>
 
@@ -48,6 +79,7 @@
 				<div class="iconbox" id="msg4"></div>
 				<div class="iconbox" id="msg5"></div>
 			</div>
+			<div class="divider" style="background-color:aquamarine"></div>
 			<div class="breakdiv"></div>
 			<div class="iconbar" id="choice">
 				<div class="iconbox" id="c1"></div>
@@ -79,5 +111,6 @@
 		<div class="divider"></div>
 		<div class="breakdiv"></div>
 	</div>
+</body>
 
 </html>
