@@ -7,7 +7,7 @@
 }
 
 body{
-    background-image: url('../../Assets/[svg]background.svg');
+    background-image: url('../Assets/[svg]background.svg');
     background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;

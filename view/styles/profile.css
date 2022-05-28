@@ -31,14 +31,14 @@
 }
 
 h1{
-	background-image: url('../../Assets/[svg]textbox.svg');
+	background-image: url('../Assets/[svg]textbox.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-size: 43px;
 	font-weight: bold;
 }
 .statistics{
-	background-image: url('../../Assets/[svg]textbox.svg');
+	background-image: url('../Assets/[svg]textbox.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 170px;
