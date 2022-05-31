@@ -15,19 +15,8 @@
 
 	<body>
         <div id="entirepage">
-            <header>
-                <div id="sidebar">
-                    <a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
-    
-                    <a href="index.html">Home</a>
-                    <a href="store.html">Store</a>
-                    <a href="profile.html">My Profile</a>
-                    <a href="search-user.html">Search Players</a>
-                    <a href="account_settings.html" id="setting">Account Settings</a>
-                </div>
-    
-                <button id="menubtn" onclick="openBar()"></button>
-            </header>
+			<script>$(document).ready(() => $("header").load("menubtn.html"));</script>
+			<header></header>
 
 			<!--- TODO: obtain username from database -->
 			<h1>Username#1234</h1>

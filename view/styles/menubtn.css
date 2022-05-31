@@ -40,9 +40,15 @@
 
 #exitbtn{
     position: absolute;
+    cursor:pointer;
+    border:none;
+    outline:none;
+    background:none;
     font-weight: bold;
-    right: 10px;
-    top: 0;
+    font-size:40px;
+    color:rgb(27, 27, 27);
+    right: 20px;
+    top: 10px;
 }
 
 #setting{

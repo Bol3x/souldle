@@ -8,25 +8,13 @@
 		<link rel = "stylesheet" href = "styles/menubtn.css">
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
-		<script src="scripts/menubtn.js" type="text/javascript"></script>
 		<script src="scripts/account_settings.js" type="text/javascript"></script>
     </head>
 
     <body>
 		<div class ="main">
-            <header>
-                <div id="sidebar">
-                    <a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
-    
-                    <a href="index.html">Home</a>
-                    <a href="store.html">Store</a>
-                    <a href="profile.html">My Profile</a>
-                    <a href="search-user.html">Search Players</a>
-                    <a href="account_settings.html" id="setting">Account Settings</a>
-                </div>
-    
-                <button id="menubtn" onclick="openBar()"></button>
-            </header>
+			<script>$(document).ready(() => $("header").load("menubtn.html"));</script>
+			<header></header>
 					
 			<h1>Account Options</h1>
 			

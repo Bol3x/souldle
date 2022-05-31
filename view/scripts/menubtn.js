@@ -1,6 +1,7 @@
-function openBar(){
-    document.getElementById("sidebar").style.width = "250px";
-}
-function closeBar(){
-    document.getElementById("sidebar").style.width = "0";
-}
+$("#menubtn").click(function () { 
+    $("#sidebar").css("width", "250px");
+});
+
+$("#exitbtn").click(function () { 
+    $("#sidebar").css("width", "0");
+});
