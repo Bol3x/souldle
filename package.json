@@ -1,0 +1,24 @@
+{
+  "name": "souldle",
+  "version": "1.0.0",
+  "description": "Souldle web game\r  <br><br>\r  Members: <br>\r  Jan Carlo Roleda <br>\r  Shane Owen Uy <br>\r  John Paul Pangan <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bol3x/souldle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bol3x/souldle/issues"
+  },
+  "homepage": "https://github.com/Bol3x/souldle#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5"
+  }
+}

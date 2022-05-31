@@ -1,31 +1,14 @@
-<html>
-	<head>
-		<link rel="stylesheet" href="styles/theme.css">
-		<link rel="stylesheet" href="styles/menubtn.css">
-	</head>
+<header>
+	<div id="sidebar">
+		<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
 
-	<body>
-		<header>
-			<div id="sidebar">
-				<a href="javascript:void(0)" id="exitbtn" onclick="closeBar()">X</a>
+		<a href="game.html">Play Game</a>
+		<a href="store.html">Store</a>
+		<a href="profile.html">My Profile</a>
+		<a href="search-user.html">Search Players</a>
+		<a href="account_settings.html" id="setting">Account Settings</a>
+	</div>
 
-				<a href="game.html">Play Game</a>
-				<a href="store.html">Store</a>
-				<a href="profile.html">My Profile</a>
-				<a href="search-user.html">Search Players</a>
-				<a href="account_settings.html" id="setting">Account Settings</a>
-			</div>
-
-			<button id="menubtn" onclick="openBar()"></button>
-		</header>
-		<script>
-			function openBar(){
-				document.getElementById("sidebar").style.width = "250px";
-			}
-			function closeBar(){
-				document.getElementById("sidebar").style.width = "0";
-			}
-		</script>
-
-	</body>
-</html>
+	<button id="menubtn" onclick="openBar()"></button>
+	<script src="scripts/menubtn.js"></script>
+</header>
