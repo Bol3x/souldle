@@ -3,9 +3,7 @@
 <html>
     <head>
         <title> Account Options Page</title>
-		<link rel = "stylesheet" href = "styles/theme.css">
 		<link rel = "stylesheet" href = "styles/account_settings.css">
-		<link rel = "stylesheet" href = "styles/menubtn.css">
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
 		<script src="scripts/account_settings.js" type="text/javascript"></script>
@@ -23,8 +21,8 @@
 					<label>Enter Password to confirm</label>
 					<input type="password" placeholder="Enter Password" name="psw" required><br>
 					
-					<button type="submit" id ="deletebtn">Confirm Deletion</button>
-					<button type="button" id ="close" onclick = "closeForm()"> Close </button>
+					<button type="submit" class="accountbtn" id ="deletebtn">Confirm Deletion</button>
+					<button type="button" class="accountbtn" id ="close" onclick = "closeForm()"> Close </button>
 				</form>
 			</div>
 			
@@ -38,9 +36,9 @@
 				
 				
 					<input id="submitform" type = "submit" value = "Submit"><br><br>
-						<a href="Login.html"> <button id="logoutbtn">Logout</button></a>
+						<a href="Login.html"> <button class="accountbtn" id="logoutbtn">Logout</button></a>
 				</form>
-				<button id="openDelete" onclick="openForm()">Delete Account</button>
+				<button class="accountbtn" id="openDelete" onclick="openForm()">Delete Account</button>
 			</div>
 		</div>
 
