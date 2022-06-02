@@ -1,9 +1,45 @@
 #avatar{
-	height: 303px;
-	width: 293px;
+	height: 320px;
+	width: 300px;
 	padding: 15px 15px 0 15px;
 	margin-bottom: 20px;
-	box-sizing: content-box;
 	border: 3px solid rgb(100, 100, 100);
 	border-radius: 10px;
+	position:relative;
+	box-sizing: content-box;
+}
+
+#base{
+	height: 303px;
+	width: 293px;
+	z-index: 0;
+	position:relative;
+	left:0;
+}
+
+.weapon{
+	height: 250px;
+	width: 60px;
+	z-index: 2;
+	position:absolute;
+	left: 250px;
+}
+
+#hat{
+	height: 95px;
+	width: 200px;
+	z-index: 1;
+	position:absolute;
+	left: 76px;
+	top: 0;
+}
+
+/*Only works for DarkHelm, not sure why its not working for LightHelm*/
+#helmet{
+	height: 170px;
+	width: 200px;
+	z-index: 1;
+	position:absolute;
+	left: 77px;
+	top: -13px;
 }
