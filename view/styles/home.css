@@ -1,3 +1,7 @@
+@import "theme.css";
+@import "menubtn.css";
+@import "gamepage.css";
+
 body{
     width: 1000px;
 }

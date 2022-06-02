@@ -1,3 +1,7 @@
+@import "theme.css";
+@import "menubtn.css";
+@import "helpmodal.css";
+
 #content{
 	width: 800px;
 	margin:auto;

@@ -1,3 +1,7 @@
+@import "theme.css";
+@import "avatar.css";
+@import "menubtn.css";
+
 #area{
     display: flex;
 }
@@ -16,14 +20,6 @@
 	border: 2px solid gray;
 }
 
-#avatar{
-	height: 303px;
-	width: 293px;
-	float: left;
-    padding: 15px 15px 0 15px;
-    margin-bottom: 20px;
-    box-sizing: content-box;
-}
 #entirepage{
 	margin: 40px auto 60px;
 	width: 805px;

@@ -1,3 +1,6 @@
+@import "theme.css";
+@import "menubtn.css";
+
 .entirepage{
 	margin: 40px auto 60px;
 	width: 805px;
