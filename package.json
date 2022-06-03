@@ -4,7 +4,7 @@
   "description": "Souldle web game\r  <br><br>\r  Members: <br>\r  Jan Carlo Roleda <br>\r  Shane Owen Uy <br>\r  John Paul Pangan <br>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon Database/testimport.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "dependencies": {
     "express": "^4.18.1",
     "mongoose": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
