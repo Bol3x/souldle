@@ -25,7 +25,6 @@
 .gridbox{
     position: relative;
     overflow: visible;
-    white-space: nowrap;
     margin-left: 60px;
     margin-right: 60px;
     padding: 20px;
@@ -62,4 +61,9 @@
 
 .row:after{
     clear:both;
+}
+
+.divider{
+    width: 100%;
+    border: 2px solid gray;
 }

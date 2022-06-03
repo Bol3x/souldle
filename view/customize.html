@@ -1,58 +1,52 @@
 <html>
-    <head>
-        <title>Char Customize</title>
-        <link rel="stylesheet" href="styles/customize.css">
+	<head>
+		<title>Char Customize</title>
+		<link rel="stylesheet" href="styles/customize.css">
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
-    </head>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+	</head>
 
-    <body>
-        <div id="area"> 
-            <script>$(document).ready(() => $("header").load("menubtn.html"));</script>
-            <header></header>
-            
-            <!--TODO: create dynamic avatar assets relative to equipped items-->
-            <div id="left">
-                <div id="avatar">
-                    <img id="base" src="Assets/[svg]base.svg">
-                    <img class="weapon" src="Assets/Weapons/[svg]katana.svg">
-                    <img class="head" id="helmet" src="Assets/Hats/DarkHelm.svg">
-                </div>
-                <br>
-                <form><input type="submit" id="save" value="Save Customizations" /></form>
-            </div>
+	<body>
+		<div id="area"> 
+			<script>$(document).ready(() => $("header").load("menubtn.html"));</script>
+			<header></header>
+			
+			<!--TODO: create dynamic avatar assets relative to equipped items-->
+			<div id="left">
+				<div id="avatar">
+					<img id="base" src="Assets/[svg]base.svg">
+					<img class="weapon" id="longhandle" src="Assets/Weapons/[svg]scythe.svg">
+					<img class="head" id="helmet" src="Assets/Hats/lighthelm.svg">
+				</div>
+				<br>
+				<form><input type="submit" id="save" value="Save Customizations" /></form>
+			</div>
 
-            <!--TODO: attach images to each cell-->
-            <div class="gridbox">
-                <div class="row" id="r1">
-                    <button class="item" id="1_1"><img src="Assets/Weapons/[svg]axe.svg"></button>
-                    <button class="item" id="1_2"><img src="Assets/Weapons/[svg]hammer.svg"></button>
-                    <button class="item" id="1_3"><img src="Assets/Weapons/[svg]katana.svg"></button>
-                    <button class="item" id="1_4"><img src="Assets/Weapons/[svg]scythe.svg"></button>
-                    <button class="item" id="1_5"><img src="Assets/Weapons/[svg]sword.svg"></button>
-                </div>
-                <div class="row" id="r2">
-                    <button class="item" id="2_1"></button>
-                    <button class="item" id="2_2"></button>
-                    <button class="item" id="2_3"></button>
-                    <button class="item" id="2_4"></button>
-                    <button class="item" id="2_5"></button>
-                </div>
-                <div class="row" id="r3">
-                    <button class="item" id="3_1"></button>
-                    <button class="item" id="3_2"></button>
-                    <button class="item" id="3_3"></button>
-                    <button class="item" id="3_4"></button>
-                    <button class="item" id="3_5"></button>
-                </div>
-                <div class="row" id="r4">
-                    <button class="item" id="4_1"></button>
-                    <button class="item" id="4_2"></button>
-                    <button class="item" id="4_3"></button>
-                    <button class="item" id="4_4"></button>
-                    <button class="item" id="4_5"></button>
-                </div>
-            </div>
-        </div>
-    </body>
+			<!--TODO: attach images to each cell-->
+			<div class="gridbox">
+				<h2>Weapons</h2>
+				<div class="subbox" id="weaponbox">
+					<button class="item" id="w1"><img src="Assets/Weapons/[svg]axe.svg"></button>
+					<button class="item" id="w2"><img src="Assets/Weapons/[svg]hammer.svg"></button>
+					<button class="item" id="w3"><img src="Assets/Weapons/[svg]katana.svg"></button>
+					<button class="item" id="w4"><img src="Assets/Weapons/[svg]scythe.svg"></button>
+					<button class="item" id="w5"><img src="Assets/Weapons/[svg]sword.svg"></button>
+
+					<br> <button class="item" id="w0">Unequip</button>
+				</div>
+				<br>
+				<div class="divider"></div>
+				<br>
+				<h2>Hats</h2>
+				<div class="subbox" id="hatbox">
+					<button class="item" id="h1"><img src="Assets/Hats/crown.svg"></button>
+					<button class="item" id="h2"><img src="Assets/Hats/DarkHelm.svg"></button>
+					<button class="item" id="h3"><img src="Assets/Hats/LightHelm.svg"></button>
+					<button class="item" id="h4"><img src="Assets/Hats/Viking.svg"></button>
+					
+					<br> <button class="item" id="h0">Unequip</button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

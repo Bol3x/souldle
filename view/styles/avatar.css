@@ -18,28 +18,37 @@
 }
 
 .weapon{
-	height: 250px;
-	width: 60px;
 	z-index: 2;
 	position:absolute;
+}
+
+#shorthandle{
+	height: 250px;
+	width: 60px;
 	left: 250px;
+}
+
+#longhandle{
+	height: 260px;
+	width: 120px;
+	left: 240px;
+}
+
+.head{
+	z-index: 1;
+	position:absolute;
 }
 
 #hat{
 	height: 95px;
 	width: 200px;
-	z-index: 1;
-	position:absolute;
 	left: 76px;
 	top: 0;
 }
 
-/*Only works for DarkHelm, not sure why its not working for LightHelm*/
 #helmet{
-	height: 170px;
-	width: 200px;
-	z-index: 1;
-	position:absolute;
-	left: 77px;
-	top: -13px;
+	height: 180px;
+	width: 280px;
+	left: 35px;
+	top: -16px;
 }
