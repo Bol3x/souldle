@@ -24,25 +24,25 @@
 }
 #wpn0{
 	background-color: gray;
-	background: url("../Assets/Weapons/[svg]katana.svg") no-repeat;
+	background: url("../Assets/Weapons/katana.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn1{
 	background-color: gray;
-	background: url("../Assets/Weapons/[svg]axe.svg") no-repeat;
+	background: url("../Assets/Weapons/axe.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn2{
 	background-color: gray;
-	background: url("../Assets/Weapons/[svg]hammer.svg") no-repeat;
+	background: url("../Assets/Weapons/hammer.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn3{
 	background-color: gray;
-	background: url("../Assets/Weapons/[svg]scythe.svg") no-repeat;
+	background: url("../Assets/Weapons/scythe.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
