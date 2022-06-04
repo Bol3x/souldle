@@ -4,7 +4,8 @@
   "description": "Souldle web game\r  <br><br>\r  Members: <br>\r  Jan Carlo Roleda <br>\r  Shane Owen Uy <br>\r  John Paul Pangan <br>",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon Database/testimport.js"
+    "importTest": "nodemon Database/testimport.js",
+    "devStart": "nodemon index.js"
   },
   "repository": {
     "type": "git",
