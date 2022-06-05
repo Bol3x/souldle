@@ -1,0 +1,14 @@
+<div id="avatar">
+	<img id="base" src="Assets/base.svg">
+	
+	<img    class="weapon" 
+			id="<%= avatar.weapon.item_type %>" 
+			src="<%= avatar.weapon.img_link %>"
+		>
+	<% if (avatar.hat !== null){ %>
+	<img    class="head" 
+			id="<%= avatar.hat.item_type %>" 
+			src="<%= avatar.hat.img_link %>"
+		>
+	<% } %>
+</div>
