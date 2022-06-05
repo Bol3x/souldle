@@ -67,3 +67,7 @@
     width: 100%;
     border: 2px solid gray;
 }
+
+.selected{
+    border: 5px solid cyan;
+}

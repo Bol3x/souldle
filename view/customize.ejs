@@ -4,6 +4,7 @@
 		<link rel="stylesheet" href="styles/customize.css">
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+		<script src="scripts/customize.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -11,8 +12,25 @@
 			<%- include('./partials/nav.ejs') %>
 			
 			<!--TODO: create dynamic avatar assets relative to equipped items-->
+			<% let custom = avatar %> 
 			<div id="left">
-				<%- include('./partials/avatar.ejs')>
+				<div id="avatar">
+					<img id="base" src="Assets/base.svg">
+					<img    class="weapon" 
+							id="<%= custom.weapon.item_type %>" 
+							src="<%= custom.weapon.img_link %>"
+							alt="<%= custom.weapon.item_name%>"
+						>
+					<% if (avatar.hat !== null){ %>
+					<img    class="head" 
+							id="<%= custom.hat.item_type %>" 
+							src="<%= custom.hat.img_link %>"
+							alt="<%= custom.weapon.item_name%>"
+						>
+					<% }else{ %>
+					<img	class="head" id=>
+					<% } %>
+				</div>
 				<br>
 				<form><input type="submit" id="save" value="Save Customizations" /></form>
 			</div>
@@ -21,23 +39,24 @@
 			<div class="gridbox">
 				<h2>Weapons</h2>
 				<div class="subbox" id="weaponbox">
-					<button class="item" id="w1"><img src="Assets/Weapons/axe.svg"></button>
-					<button class="item" id="w2"><img src="Assets/Weapons/hammer.svg"></button>
-					<button class="item" id="w3"><img src="Assets/Weapons/katana.svg"></button>
-					<button class="item" id="w4"><img src="Assets/Weapons/scythe.svg"></button>
-					<button class="item" id="w5"><img src="Assets/Weapons/sword.svg"></button>
+					<% weapons.forEach(weapon => { %>
+						<button class="item weaponslot" name="<%=weapon.item_name%>" id="<%=weapon.item_type%>">
+							<img src="<%=weapon.img_link%>"/>
+						</button>
+					<% }) %>
 				</div>
 				<br>
 				<div class="divider"></div>
 				<br>
 				<h2>Hats</h2>
 				<div class="subbox" id="hatbox">
-					<button class="item" id="h1"><img src="Assets/Hats/crown.svg"></button>
-					<button class="item" id="h2"><img src="Assets/Hats/DarkHelm.svg"></button>
-					<button class="item" id="h3"><img src="Assets/Hats/LightHelm.svg"></button>
-					<button class="item" id="h4"><img src="Assets/Hats/Viking.svg"></button>
+					<% heads.forEach(head => { %>
+						<button class="item headslot" id="<%=head.item_type%>">
+							<img src="<%=head.img_link%>" alt="<%=head.item_name%>"/>
+						</button>
+					<% }) %>
 					
-					<br> <button class="item" id="h0">Unequip</button>
+					<br> <button class="item headslot" id="unequip_hat">None</button>
 				</div>
 			</div>
 		</div>

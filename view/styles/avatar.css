@@ -22,13 +22,13 @@
 	position:absolute;
 }
 
-#shorthandle{
+#avatar #shorthandle{
 	height: 250px;
 	width: 60px;
 	left: 250px;
 }
 
-#longhandle{
+#avatar #longhandle{
 	height: 260px;
 	width: 120px;
 	left: 240px;
@@ -39,14 +39,14 @@
 	position:absolute;
 }
 
-#hat{
+#avatar #hat{
 	height: 95px;
 	width: 200px;
 	left: 76px;
 	top: 0;
 }
 
-#helmet{
+#avatar #helmet{
 	height: 180px;
 	width: 280px;
 	left: 35px;

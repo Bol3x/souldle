@@ -37,7 +37,7 @@ app.get('/store', async (req, res) => {
     res.render('store');
 });
 
-app.get('/profile', async(req,res) =>{
+app.get('/profile', async (req,res) =>{
     const user = await User.find({name: "Buranku"}).populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'}).limit(1);
     console.log(user[0]);
     const name = user[0].name;
@@ -45,6 +45,19 @@ app.get('/profile', async(req,res) =>{
     const stats = user[0].statistics;
     res.render('profile', {name, avatar, stats});
 });
+
+app.get('/customize', async (req, res)=>{
+    const user = await User.find({name: "Buranku"}, 'avatar').populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'}).limit(1);
+    //console.log(user[0]);
+    avatar = user[0].avatar;
+    const weapons = await Item.find({equip_slot: "weapon"});
+    //console.log(weapons);
+
+    const heads = await Item.find({equip_slot: "head"});
+    //console.log(heads);
+
+    res.render('customize', {avatar , weapons, heads});
+})
 
 app.get('/search', (req,res) =>{
     res.render('search_user');
