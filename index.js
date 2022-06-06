@@ -84,11 +84,15 @@ app.post('/customize/save', async(req,res)=>{
 
     user.avatar = {weapon: newWeapon, hat: newHead};
     //console.log(user);
-    await user.save((err, res) =>{
+    await user.save((err, result) =>{
         if (err)
                 console.log(err);
-        else    console.log(res);
+        else{
+            console.log(result);
+            res.sendStatus(200).end();
+        }
     });
+    
 });
 
 app.get('/search', (req,res) =>{

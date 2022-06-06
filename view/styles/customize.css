@@ -71,3 +71,7 @@
 .selected{
     border: 5px solid cyan;
 }
+
+#response{
+    color: rgb(164, 245, 43);
+}

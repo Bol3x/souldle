@@ -48,8 +48,9 @@ $(document).ready(function () {
 
 	$('#save').click(function (){
 		$.post("/customize/save", saveChanges(),
-			function (data, textStatus) {
+			function (data, textStatus, jqXHR) {
 				console.log(data);
+				$('#response').text('Successfully Saved.');
 			}
 		);
 	})
