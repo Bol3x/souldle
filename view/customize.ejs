@@ -10,29 +10,28 @@
 	<body>
 		<div id="area"> 
 			<%- include('./partials/nav.ejs') %>
-			
 			<!--TODO: create dynamic avatar assets relative to equipped items-->
-			<% let custom = avatar %> 
 			<div id="left">
 				<div id="avatar">
 					<img id="base" src="Assets/base.svg">
 					<img    class="weapon" 
-							id="<%= custom.weapon.item_type %>" 
-							src="<%= custom.weapon.img_link %>"
-							alt="<%= custom.weapon.item_name%>"
+							id="<%= avatar.weapon.item_type %>" 
+							src="<%= avatar.weapon.img_link %>"
+							alt="<%= avatar.weapon.item_name%>"
 						>
 					<% if (avatar.hat !== null){ %>
 					<img    class="head" 
-							id="<%= custom.hat.item_type %>" 
-							src="<%= custom.hat.img_link %>"
-							alt="<%= custom.weapon.item_name%>"
+							id="<%= avatar.hat.item_type %>" 
+							src="<%= avatar.hat.img_link %>"
+							alt="<%= avatar.hat.item_name%>"
 						>
 					<% }else{ %>
 					<img	class="head" id=>
 					<% } %>
 				</div>
 				<br>
-				<form><input type="submit" id="save" value="Save Customizations" /></form>
+				<input type="submit" id="save" data-="saveChanges()" value="Save Customizations" />
+				<p id="response"></p>
 			</div>
 
 			<!--TODO: attach images to each cell-->
@@ -51,8 +50,8 @@
 				<h2>Hats</h2>
 				<div class="subbox" id="hatbox">
 					<% heads.forEach(head => { %>
-						<button class="item headslot" id="<%=head.item_type%>">
-							<img src="<%=head.img_link%>" alt="<%=head.item_name%>"/>
+						<button class="item headslot" name="<%=head.item_name%>" id="<%=head.item_type%>">
+							<img src="<%=head.img_link%>"/>
 						</button>
 					<% }) %>
 					
