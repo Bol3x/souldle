@@ -95,6 +95,21 @@ app.post('/customize/save', async(req,res)=>{
     
 });
 
+app.get('/shop', async (req,res) => {
+
+    const user = await User.findOne({name: 'Buranku'});
+    souls = user.souls;
+    console.log(souls);
+
+    //get list of items not in player's collection
+    const weapons = await Item.find({equip_slot: 'weapon'});
+    console.log(weapons);
+    const heads = await Item.find({equip_slot: "head"});
+    console.log(heads);
+
+    res.render('store', {souls, weapons, heads});
+});
+
 app.get('/search', (req,res) =>{
     res.render('search_user');
 });

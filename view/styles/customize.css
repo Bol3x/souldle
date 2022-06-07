@@ -29,12 +29,13 @@
     margin-right: 60px;
     padding: 20px;
     border: 10px solid rgb(70, 215, 235);
+    background-color:rgb(70, 70, 70);
     border-radius: 20px;
 }
 
 .item{
     background-color: rgb(116, 116, 116);
-    border: 1px solid rgb(61, 61, 61);
+    border: 3px solid rgb(61, 61, 61);
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
@@ -65,7 +66,7 @@
 
 .divider{
     width: 100%;
-    border: 2px solid gray;
+    border: 2px solid white;
 }
 
 .selected{

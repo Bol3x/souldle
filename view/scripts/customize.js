@@ -20,6 +20,9 @@ $(document).ready(function () {
 		$('.weapon').attr('id', type);
 		$('.weapon').attr('src', img_src);
 		$('.weapon').attr('alt', item_name);
+
+		//remove text in responsebox if exists
+		$('#response').text('');
 	});
 
 	//head customize UI
@@ -44,6 +47,9 @@ $(document).ready(function () {
 			$('.head').attr('src', img_src);
 			$('.head').attr('alt', item_name);
 		}
+
+		//remove text in responsebox if exists
+		$('#response').text('');
 	});
 
 	$('#save').click(function (){

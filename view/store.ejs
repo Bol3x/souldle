@@ -12,30 +12,33 @@
 </head>
 
 <body>
-	<script>$(document).ready(() => $("header").load("menubtn.html"));</script>
-	<header></header>
-
+	<%- include('./partials/nav.ejs') %>
 
 	<div class="entirepage">
 		<div class="break"></div>
 		<div class="header">
 			<h1 id="store">Store</h1>
 			<!--- TODO: obtain soulcount from database -->
-			<h1 id="soulcount">Souls: 9999</h1>
+			<h1 id="soulcount">Souls:<%=souls%></h1>
 		</div>
 		<div class="break"></div>
 		<div class="gridbox">
-			<div class="row">
-				<button class="item" id="hat0"></button>
-				<button class="item" id="hat1"></button>
-				<button class="item" id="hat2"></button>
-				<button class="item" id="hat3"></button>
+			<div class="row" id="weapons">
+				<h1 class="itemheader">Weapons</h1>
+				<%weapons.forEach(weapon =>{%>
+					<button class="item" id="<%=weapon.item_name%>">
+						<img src="<%=weapon.img_link%>" />
+					</button>
+				<%})%>
 			</div>
-			<div class="row">
-				<button class="item" id="wpn0"></button>
-				<button class="item" id="wpn1"></button>
-				<button class="item" id="wpn2"></button>
-				<button class="item" id="wpn3"></button>
+			<br><div class="divider"></div>
+			<div class="row" id="hats">
+				<h1 class="itemheader">Headgear</h1>
+				<%heads.forEach(head =>{%>
+					<button class="item" id="<%=head.item_name%>">
+						<img src="<%=head.img_link%>" />
+					</button>
+				<%})%>
 			</div>
 		</div>
 		<div class="break"></div>

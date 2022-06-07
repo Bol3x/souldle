@@ -1,10 +1,9 @@
 @import "theme.css";
 @import "menubtn.css";
-@import "storesheet.css";
 
 .entirepage{
 	margin: 40px auto 60px;
-	width: 805px;
+	width: 950px;
 	font-family: "Garamond";
 }
 
@@ -14,38 +13,61 @@ h1{
 	font-size: 43px;
 	font-weight: bold;
 	letter-spacing:-3px;
+    width: 400px;
 }
 .header{
 	display: flex;
 }
 
-h1{
-	width: 400;
-}
 #soulcount{
 	text-align: right;
 }
+
 img{
-	height: 100px;
-	width: 100px;
+	height: 140px;
+	width: 140px;
 	margin: 0 0 0 0;
 	padding: 0;
 }
+
+.gridbox{
+    position: relative;
+    overflow: visible;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 20px;
+    border: 10px solid rgb(70, 215, 235);
+    background-color:rgb(70, 70, 70);
+    border-radius: 20px;
+}
+
 .item{
-    background: rgb(75, 75, 100);
-    border: 3px solid rgb(100,100,100);
+    background-color: rgb(116, 116, 116);
+    border: 3px solid rgb(61, 61, 61);
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
     padding: 0;
     text-align: center;
-    width: 195px;
-    height: 195px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
+    cursor:pointer;
 }
+
+.item:hover{
+	border-color: cyan;
+}
+
+.itemheader{
+    width: 100%;
+}
+
 .break{ 
-clear: both; 
+    clear: both; 
 }
-dd.break { 
-float: none; margin: 0; height: 15px; 
+
+.divider{
+    width: 100%;
+    border: 2px solid white;
 }
