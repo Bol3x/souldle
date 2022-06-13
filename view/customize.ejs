@@ -4,26 +4,26 @@
 		<link rel="stylesheet" href="styles/customize.css">
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
-		<script src="scripts/customize.js" type="text/javascript"></script>
+		<script src="/control/customize.js" type="text/javascript"></script>
 	</head>
 
 	<body>
 		<div id="area"> 
 			<%- include('./partials/nav.ejs') %>
-			<!--TODO: create dynamic avatar assets relative to equipped items-->
+
 			<div id="left">
 				<div id="avatar">
 					<img id="base" src="Assets/base.svg">
 					<img    class="weapon" 
 							id="<%= avatar.weapon.item_type %>" 
-							src="<%= avatar.weapon.img_link %>"
-							alt="<%= avatar.weapon.item_name%>"
+							src="Assets/Weapons/<%= avatar.weapon.file_name %>"
+							data-name="<%= avatar.weapon.item_name%>"
 						>
 					<% if (avatar.hat !== null){ %>
 					<img    class="head" 
 							id="<%= avatar.hat.item_type %>" 
-							src="<%= avatar.hat.img_link %>"
-							alt="<%= avatar.hat.item_name%>"
+							src="Assets/Hats/<%= avatar.hat.file_name %>"
+							data-name="<%= avatar.hat.item_name%>"
 						>
 					<% }else{ %>
 					<img	class="head">
@@ -34,13 +34,12 @@
 				<p id="response"></p>
 			</div>
 
-			<!--TODO: attach images to each cell-->
 			<div class="gridbox">
 				<h2>Weapons</h2>
 				<div class="subbox" id="weaponbox">
 					<% weapons.forEach(weapon => { %>
 						<button class="item weaponslot" name="<%=weapon.item_name%>" id="<%=weapon.item_type%>">
-							<img src="<%=weapon.img_link%>"/>
+							<img src="Assets/Weapons/<%=weapon.file_name%>"/>
 						</button>
 					<% }) %>
 				</div>
@@ -51,7 +50,7 @@
 				<div class="subbox" id="hatbox">
 					<% heads.forEach(head => { %>
 						<button class="item headslot" name="<%=head.item_name%>" id="<%=head.item_type%>">
-							<img src="<%=head.img_link%>"/>
+							<img src="Assets/Hats/<%=head.file_name%>"/>
 						</button>
 					<% }) %>
 					

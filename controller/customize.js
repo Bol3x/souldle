@@ -1,8 +1,8 @@
 $(document).ready(function () {
-	weap_equip = $('.weapon').attr('alt');
+	weap_equip = $('.weapon').data('name');
 	$("button[name='" + weap_equip + "']").addClass('selected');
 
-	head_equip = $('.head').attr('alt');
+	head_equip = $('.head').data('name');
 	$("button[name='" + head_equip + "']").addClass('selected');
 
 	//weapon customize UI
@@ -11,6 +11,7 @@ $(document).ready(function () {
 		type = $(this).attr('id');
 		img_src = $(this).children("img").attr("src");
 		item_name = $(this).attr('name');
+		console.log(item_name);
 
 		//show selected weapon
 		$('.weaponslot').removeClass('selected');
@@ -19,7 +20,7 @@ $(document).ready(function () {
 		//append attributes of chosen weapon
 		$('.weapon').attr('id', type);
 		$('.weapon').attr('src', img_src);
-		$('.weapon').attr('alt', item_name);
+		$('.weapon').data('name', item_name);
 
 		//remove text in responsebox if exists
 		$('#response').text('');
@@ -31,6 +32,7 @@ $(document).ready(function () {
 		type = $(this).attr('id');
 		img_src = $(this).children("img").attr("src");
 		item_name = $(this).attr('name');
+		console.log(item_name);
 
 		//show selected head
 		$('.headslot').removeClass('selected');
@@ -45,7 +47,7 @@ $(document).ready(function () {
 		else{
 			$('.head').attr('id', type);
 			$('.head').attr('src', img_src);
-			$('.head').attr('alt', item_name);
+			$('.head').data('name', item_name);
 		}
 
 		//remove text in responsebox if exists
@@ -65,10 +67,7 @@ $(document).ready(function () {
 
 //returns a JSON file containing the name of the items to be saved
 saveChanges = () => {
-	let weaponName = $('.weapon').attr('alt');
-	let hatName = $('.head').attr('alt');
-	if (hatName === undefined)
-		return ({weapon: weaponName, head: null});
-	else
-		return ({weapon: weaponName, head: hatName});
+
+	return ({weapon: $('.weapon').data('name'), 
+			 head: $('.head').data('name')});
 }

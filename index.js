@@ -15,14 +15,15 @@ app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.set('views', 'view');   //set engine to look for ejs files in view
 
+//path for static file (html, css, asset) serving
+app.use(express.static(__dirname + '/view/'));
+app.use('/control', express.static(__dirname + '/controller/'));
+
 //server start
 const port = 3000;
 var server = app.listen(3000, () =>{
     console.log("server is running at port " + port);
 })
-
-//path for static file (html, css, asset) serving
-app.use(express.static(__dirname + '/view/'));
 
 /**
  * API CALLS
@@ -70,6 +71,7 @@ app.get('/customize', async (req, res)=>{
 })
 
 app.post('/customize/save', async(req,res)=>{
+    console.log(req.body.weapon + "  " + req.body.head);
     //item queries
     //weapon
     const newWeapon = await Item.findOne({item_name: req.body.weapon});
@@ -109,6 +111,11 @@ app.get('/shop', async (req,res) => {
 
     res.render('store', {souls, weapons, heads});
 });
+
+app.post('shop/purchase', async (req, res) =>{
+    const user = await User.findOne({name: 'Buranku'});
+    
+})
 
 app.get('/search', (req,res) =>{
     res.render('search_user');
