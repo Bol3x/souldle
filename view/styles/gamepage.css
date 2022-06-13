@@ -108,3 +108,27 @@
 .button[id = "e"]:hover {
   background-color: orchid;
 }
+
+.A{
+background-color: crimson;
+background-image: url("view/Assets/Icons/AttackIcon.svg");
+}
+.B{
+background-color: deepskyblue;
+}
+.C{
+background-color: greenyellow;
+}
+.D{
+background-color: gold;
+}
+.E{
+background-color: orchid;
+}
+
+.correct{
+border: 10px solid blue;
+}
+.wrong{
+border: 10px solid gray;
+}
