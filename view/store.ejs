@@ -4,11 +4,11 @@
 	<title>Souldle Store Page</title>
 	<meta name=”description” content=”CharacterPage”>
 	<meta name=”keyword” content="store, page, items">
-	<meta name=”author” content=”JPMP”>
 	
 	<link rel="stylesheet" href="styles/storestyles.css">
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="/controller/storepage.js"></script>
 </head>
 
 <body>
@@ -26,8 +26,10 @@
 			<div class="row" id="weapons">
 				<h1 class="itemheader">Weapons</h1>
 				<%weapons.forEach(weapon =>{%>
-					<button class="item" id="<%=weapon.item_name%>">
-						<img src="<%=weapon.img_link%>" />
+					<button class="item" id="<%=weapon.item_name%>" 
+						data-name="<%=weapon.item_name%>" data-cost="<%=weapon.cost%>"
+						>
+						<img src="Assets/Weapons/<%=weapon.file_name%>" />
 					</button>
 				<%})%>
 			</div>
@@ -35,13 +37,16 @@
 			<div class="row" id="hats">
 				<h1 class="itemheader">Headgear</h1>
 				<%heads.forEach(head =>{%>
-					<button class="item" id="<%=head.item_name%>">
-						<img src="<%=head.img_link%>" />
+					<button class="item" id="<%=head.item_name%>" 
+						data-name="<%=head.item_name%>" data-cost="<%=head.cost%>"
+						>
+						<img src="Assets/Hats/<%=head.file_name%>" />
 					</button>
 				<%})%>
 			</div>
 		</div>
 		<div class="break"></div>
+			<%- include('./partials/purchase.ejs') %>
 	</div>
 </body>
 

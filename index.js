@@ -17,7 +17,7 @@ app.set('views', 'view');   //set engine to look for ejs files in view
 
 //path for static file (html, css, asset) serving
 app.use(express.static(__dirname + '/view/'));
-app.use('/control', express.static(__dirname + '/controller/'));
+app.use('/controller', express.static(__dirname + '/controller/'));
 
 //server start
 const port = 3000;
@@ -98,23 +98,50 @@ app.post('/customize/save', async(req,res)=>{
 });
 
 app.get('/shop', async (req,res) => {
-
-    const user = await User.findOne({name: 'Buranku'});
+    const user = await User.findOne({name: 'Buranku'}, 'souls item_collection')
+    .populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
     souls = user.souls;
-    console.log(souls);
+    
+    //user weapons
+    userWeapons = user.item_collection.weapons;
+    //user hats
+    userHats = user.item_collection.hats;
 
-    //get list of items not in player's collection
-    const weapons = await Item.find({equip_slot: 'weapon'});
-    console.log(weapons);
-    const heads = await Item.find({equip_slot: "head"});
-    console.log(heads);
+
+    //get list of items not in user's collection
+    const serverWeapons = await Item.find({equip_slot: 'weapon'});
+    weapons = serverWeapons.filter(({item_name: name1}) => !userWeapons.some(({item_name: name2}) => name2 === name1));
+    const serverHeads = await Item.find({equip_slot: "head"});
+    heads = serverHeads.filter(({item_name: name1}) => !userHats.some(({item_name: name2}) => name2 === name1));
+
+    //console.log(weapons);
+    //console.log(heads);
 
     res.render('store', {souls, weapons, heads});
 });
 
-app.post('shop/purchase', async (req, res) =>{
-    const user = await User.findOne({name: 'Buranku'});
-    
+app.post('/shop/purchase', async (req, res) =>{
+    const user = await User.findOne({name: 'Buranku'}, "souls item_collection");
+    console.log(user);
+    const item = await Item.findOne({item_name: req.body.item_name});
+    console.log(item);
+
+    if (user.souls >= item.cost){
+        console.log('success');
+        user.souls -= item.cost;
+
+        switch(item.equip_slot){
+            case 'head': user.item_collection.hats.push(item); break;
+            case 'weapon': user.item_collection.weapons.push(item); break;
+        }
+
+        await user.save();
+        res.status(200).send({message: "Successfully purchased"});
+    }
+    else{
+        console.log('fail');
+        res.status(405).send({message: "Cannot purchase item"});
+    }
 })
 
 app.get('/search', (req,res) =>{

@@ -1,0 +1,77 @@
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid cyan;
+    border-radius: 10px;
+    z-index: 10;
+    width: 80%;
+    height: 60%;
+    justify-content: center;
+
+    background-color: rgb(29, 29, 29);
+}
+
+.modal-header{
+    padding: 10px 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    border-bottom: 1px solid cyan;
+}
+
+.modal-header .modal-title{
+    font-size: 50px;
+    font-weight:bold;
+}
+
+.modal button{
+    cursor:pointer;
+    border:none;
+    outline:none;
+    background:none;
+    font-size:30px;
+    font-weight:bold;
+    color:white;
+}
+
+#left{
+    float:left;
+    width:40%;
+    padding-top: 10%;
+}
+
+#purchase{
+    border: 3px solid cyan;
+    border-radius: 10px;
+    background-color: gray;
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+}
+
+#right{
+    float:left;
+    width:60%;
+    font-size: 40px;
+    padding-top: 10%;
+}
+
+.visible{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.1s linear;
+}
+
+.hidden{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.1s, opacity 0.1s linear;
+}
+
+#buy{
+    border: 3px solid darkgray;
+    background-color: gray;
+    padding: 10px 30px;
+}
