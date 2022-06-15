@@ -24,20 +24,19 @@ async function run(){
         })
         console.log(usergen)
     // query command to obtain 1 user
-        let weapon = await Item.findOne({item_name: "Katana"})
+        let weapon = await Item.findOne({item_name: "Sword"})
         console.log(weapon)
     // generate avatar of user with ObjectId of crown and sword
         usergen.avatar.weapon = weapon;
+        // default to add sword to user's inventory
+        usergen.item_collection.weapons.push(weapon._id);
         // save user
-        console.log(usergen)
+        console.log(usergen);
         await usergen.save()
 
         // let user = await User.where("name").equals("Bolex")
         // .populate({path: "avatar.hat"}).populate({path: "avatar.weapon"})
         // .limit(1)
-
-        console.log(user)
-
 
     } catch (e) {
         console.log(e.message)
