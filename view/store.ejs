@@ -19,15 +19,14 @@
 		<div class="header">
 			<h1 id="store">Store</h1>
 			<!--- TODO: obtain soulcount from database -->
-			<h1 id="soulcount">Souls:<%=souls%></h1>
+			<h1 id="soulcount">Souls: <%=souls%></h1>
 		</div>
 		<div class="break"></div>
 		<div class="gridbox">
 			<div class="row" id="weapons">
 				<h1 class="itemheader">Weapons</h1>
 				<%weapons.forEach(weapon =>{%>
-					<button class="item" id="<%=weapon.item_name%>" 
-						data-name="<%=weapon.item_name%>" data-cost="<%=weapon.cost%>"
+					<button class="item" id="<%=weapon.item_name%>" data-cost="<%=weapon.cost%>"
 						>
 						<img src="Assets/Weapons/<%=weapon.file_name%>" />
 					</button>

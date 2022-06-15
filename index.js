@@ -122,9 +122,9 @@ app.get('/shop', async (req,res) => {
 
 app.post('/shop/purchase', async (req, res) =>{
     const user = await User.findOne({name: 'Buranku'}, "souls item_collection");
-    console.log(user);
+    //console.log(user);
     const item = await Item.findOne({item_name: req.body.item_name});
-    console.log(item);
+    //console.log(item);
 
     if (user.souls >= item.cost){
         console.log('success');
@@ -136,11 +136,11 @@ app.post('/shop/purchase', async (req, res) =>{
         }
 
         await user.save();
-        res.status(200).send({message: "Successfully purchased"});
+        res.status(200).send({message: "Successfully purchased", souls: user.souls});
     }
     else{
         console.log('fail');
-        res.status(405).send({message: "Cannot purchase item"});
+        res.sendStatus(403);
     }
 })
 
