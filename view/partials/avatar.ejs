@@ -3,12 +3,12 @@
 	
 	<img    class="weapon" 
 			id="<%= avatar.weapon.item_type %>" 
-			src="<%= avatar.weapon.img_link %>"
+			src="Assets/Weapons/<%= avatar.weapon.file_name %>"
 		>
 	<% if (avatar.hat !== null){ %>
 	<img    class="head" 
 			id="<%= avatar.hat.item_type %>" 
-			src="<%= avatar.hat.img_link %>"
+			src="Assets/Hats/<%= avatar.hat.file_name %>"
 		>
 	<% } %>
 </div>
