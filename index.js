@@ -46,25 +46,27 @@ app.get('/store', async (req, res) => {
 });
 
 app.get('/profile', async (req,res) =>{
-    const user = await User.find({name: "Buranku"}).populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'}).limit(1);
-    console.log(user[0]);
-    const name = user[0].name;
-    const avatar = user[0].avatar;
-    const stats = user[0].statistics;
+    const user = await User.findOne({name: "Buranku"}, "name avatar statistics").populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'});
+    //console.log(user);
+    const name = user.name;
+    const avatar = user.avatar;
+    const stats = user.statistics;
     res.render('profile', {name, avatar, stats});
 });
 
 app.get('/customize', async (req, res)=>{
-    const user = await User.find({name: "Buranku"}, 'avatar').populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'}).limit(1);
+    const user = await User.findOne({name: "Buranku"}, 'avatar item_collection')
+    .populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
+    .populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
     //console.log(user[0]);
-    avatar = user[0].avatar;
+    avatar = user.avatar;
 
     //query user's weapon collection (item_collection.weapons)
-    const weapons = await Item.find({equip_slot: "weapon"});
+    const weapons = user.item_collection.weapons;
     //console.log(weapons);
 
     //query user's headgear collection (item_collection.hats)
-    const heads = await Item.find({equip_slot: "head"});
+    const heads = await user.item_collection.hats;
     //console.log(heads);
 
     res.render('customize', {avatar , weapons, heads});

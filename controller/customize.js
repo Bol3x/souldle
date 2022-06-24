@@ -11,7 +11,7 @@ $(document).ready(function () {
 		type = $(this).attr('id');
 		img_src = $(this).children("img").attr("src");
 		item_name = $(this).attr('name');
-		console.log(item_name);
+		//console.log(item_name);
 
 		//show selected weapon
 		$('.weaponslot').removeClass('selected');
@@ -32,7 +32,7 @@ $(document).ready(function () {
 		type = $(this).attr('id');
 		img_src = $(this).children("img").attr("src");
 		item_name = $(this).attr('name');
-		console.log(item_name);
+		//console.log(item_name);
 
 		//show selected head
 		$('.headslot').removeClass('selected');
@@ -42,7 +42,7 @@ $(document).ready(function () {
 		if ($(this).attr('id') === 'unequip_hat'){
 			$('.head').removeAttr('src');
 			$('.head').removeAttr('id');
-			$('.head').removeAttr('alt');
+			$('.head').data('name', null);
 		}
 		else{
 			$('.head').attr('id', type);
@@ -58,6 +58,7 @@ $(document).ready(function () {
 		$.post("/customize/save", saveChanges(),
 			function (data, textStatus, jqXHR) {
 				console.log(data);
+				console.log(textStatus);
 				$('#response').text('Successfully Saved.');
 			}
 		);
@@ -67,7 +68,6 @@ $(document).ready(function () {
 
 //returns a JSON file containing the name of the items to be saved
 saveChanges = () => {
-
-	return ({weapon: $('.weapon').data('name'), 
-			 head: $('.head').data('name')});
+	//newHead = $('.head').data('name') === '' ? null : $('.head').data('name');
+	return ({weapon: $('.weapon').data('name'), head: $('.head').data('name')});
 }
