@@ -16,8 +16,7 @@
 
 #title{
     font-size: 50;
-    float: left;
-    font-family: "Papyrus"
+    font-family: "Garamond";
 }
 
 #userbox{
@@ -25,15 +24,19 @@
     height: auto;
 }
 
-#username{
-    width: 25%;
-    height: 30px;
-    padding-left: 10px;
-    position: absolute;
-    right:0;
-    bottom: 0;
+#username-entry{
+    width: 50%;
+    height: 70px;
+    font-size: 40px;
     background-color: lightgray;
     color:black;
+}
+
+#error{
+    font-family: "Garamond";
+    font-style: "bold";
+    font-size: 30px;
+    color: red;
 }
 
 .user{
@@ -55,8 +58,8 @@
 }
 
 .username{
-    padding-left: 20px;
-    margin-top: 30px;
+    padding-left: 40px;
+    font-size: 40px;
     float: left;
 }
 

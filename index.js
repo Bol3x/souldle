@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require(`dotenv`);
 const app = new express();
 mongoose.connect("mongodb://localhost/souldletestdb");
 
@@ -20,9 +21,11 @@ app.use(express.static(__dirname + '/view/'));
 app.use('/controller', express.static(__dirname + '/controller/'));
 
 //server start
-const port = 3000;
-var server = app.listen(3000, () =>{
-    console.log("server is running at port " + port);
+dotenv.config();
+const port = process.env.PORT;
+const hostname = process.env.HOSTNAME;
+var server = app.listen(port, hostname, () =>{
+    console.log("server is running at: " + hostname + ":" + port);
 })
 
 /**
@@ -45,20 +48,24 @@ app.get('/store', async (req, res) => {
     res.render('store');
 });
 
+//pass a name into this GET
 app.get('/profile', async (req,res) =>{
-    const user = await User.findOne({name: "Buranku"}, "name avatar statistics").populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'});
+    const name = req.query.name;
+    const uid = req.query.uid;
+
+    const user = await User.findOne({name, uid}, "avatar statistics").populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'});
     //console.log(user);
-    const name = user.name;
     const avatar = user.avatar;
     const stats = user.statistics;
     res.render('profile', {name, avatar, stats});
 });
 
 app.get('/customize', async (req, res)=>{
+    //TODO: Session Handling
     const user = await User.findOne({name: "Buranku"}, 'avatar item_collection')
     .populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
     .populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
-    //console.log(user[0]);
+    //console.log(user);
     avatar = user.avatar;
 
     //query user's weapon collection (item_collection.weapons)
@@ -100,6 +107,7 @@ app.post('/customize/save', async(req,res)=>{
 });
 
 app.get('/shop', async (req,res) => {
+    //TODO: Session Handling
     const user = await User.findOne({name: 'Buranku'}, 'souls item_collection')
     .populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
     souls = user.souls;
@@ -123,6 +131,7 @@ app.get('/shop', async (req,res) => {
 });
 
 app.post('/shop/purchase', async (req, res) =>{
+    //TODO: Session Handling
     const user = await User.findOne({name: 'Buranku'}, "souls item_collection");
     //console.log(user);
     const item = await Item.findOne({item_name: req.body.item_name});
@@ -146,9 +155,17 @@ app.post('/shop/purchase', async (req, res) =>{
     }
 })
 
-app.get('/search', (req,res) =>{
+app.get('/search', async (req,res) =>{
     res.render('search_user');
 });
+
+app.get('/checkuser', async (req,res) =>{
+    const user = await User.findOne(req.query);
+    if (user == null)
+        res.sendStatus(404);
+    else
+        res.sendStatus(200);
+})
 
 app.get('/setting', async(req,res)=>{
     res.render('account_settings');
