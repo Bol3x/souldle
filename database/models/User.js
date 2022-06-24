@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 
 
 const UserSchema = new Schema({
-    name : {type: String, required: true, max: 30},
-    password : {type: String, required: true, max: 50},
+    name : {type: String, required: true, max: 20},
+    UID : {type: Number, required: true, unique: true},
+    password : {type: String, required: true, max: 30},
     avatar : {
         hat: {type: mongoose.SchemaTypes.ObjectId, ref:'Item', default: null},
         weapon: {type: mongoose.SchemaTypes.ObjectId, ref:'Item'}
