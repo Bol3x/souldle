@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    color:white;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('/public/assets/[svg]background.svg');
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: rgb(0,0,0);
+	color: white;
+    font-family: 'Papyrus';
+    text-align: center;
+    margin:auto;
+}

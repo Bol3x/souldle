@@ -11,7 +11,7 @@ async function run(){
         //     item_name: "Crown", 
         //     equip_slot: "head", 
         //     item_type: "hat", 
-        //     img_link: "Assets/Hats/crown.svg"})
+        //     img_link: "/public/assets/Hats/crown.svg"})
         // await item.save()
         // console.log(item)
         

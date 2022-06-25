@@ -1,0 +1,134 @@
+@import "theme.css";
+@import "menubtn.css";
+@import "helpmodal.css";
+
+#content{
+	width: 800px;
+	margin:auto;
+}
+
+.breakdiv{
+	clear:both;
+}
+
+.divider{
+	height:3px;
+	width: 100%;
+	margin:auto;
+	background-color: aqua;
+}
+
+.Bossbox{
+	height: 500px;
+	display: inline-block;
+}
+
+#skullhead {
+	position: relative;
+	display: inline-block;
+	top: 200px;
+	left: 100px;
+	offset-path: path('M0 0 50 50 100 0 50 -50 -50 50 -100 0 -50 -50 0 0');
+	offset-distance: 0;
+	offset-rotate: 0deg;
+	animation: move 2s infinite linear;
+}
+
+@keyframes move {
+	to{offset-distance: 100%;}
+}
+
+@keyframes handshake {
+	from{transform: rotate(0deg);}
+	25%{transform: rotate(45deg);}
+	50%{transform: rotate(0deg);}
+	75%{transform: rotate(-45deg);}
+	to{transform: rotate(0deg);}
+}
+#righthand{
+	position: relative;
+	display: inline-block;
+	top: 100px;
+	left: 200px;
+	animation: handshake 2000ms infinite linear;
+}
+#lefthand{
+	position: relative;
+	display: inline-block;
+	top: 100px;
+	right: 200px;
+	animation: handshake 2000ms infinite linear;
+}
+
+.playbox{
+	width:80%;
+	margin:auto;
+}
+
+.iconbar{
+	height:130px;
+	padding: 10px;
+}
+
+.iconbox{
+	background-color: rgba(129, 129, 129, 0.418);
+	border: 3px solid rgb(61, 61, 61);
+	border-radius: 3px;
+	padding: 0;
+	float:left;
+	margin: 10px 10px;
+	width: 100px;
+	height: 100px;
+}
+
+.button {
+    background-color: rgba(129, 129, 129, 0.418);
+    border-radius: 70px;
+    margin: 10px 10px;
+    padding: 12px 16px; /* Some padding */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+
+.button[id = "a"]:hover {
+  background-color: crimson;
+}
+
+.button[id = "b"]:hover {
+  background-color: deepskyblue;
+}
+
+.button[id = "c"]:hover {
+  background-color: greenyellow;
+}
+
+.button[id = "d"]:hover {
+  background-color: gold;
+}
+
+.button[id = "e"]:hover {
+  background-color: orchid;
+}
+
+.A{
+background-color: crimson;
+background-image: url("view//public/assets/Icons/AttackIcon.svg");
+}
+.B{
+background-color: deepskyblue;
+}
+.C{
+background-color: greenyellow;
+}
+.D{
+background-color: gold;
+}
+.E{
+background-color: orchid;
+}
+
+.correct{
+border: 10px solid blue;
+}
+.wrong{
+border: 10px solid gray;
+}

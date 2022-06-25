@@ -1,0 +1,58 @@
+#menubtn{
+    width: 50px;
+    height: 50px;
+	background-color: transparent;
+	background: url('/public/assets/Buttons/menu.svg') no-repeat;
+	background-size: contain;
+	background-position: center;
+	border: none;
+    position: absolute;
+    z-index: 0;
+    top:30px;
+    left:30px;
+	cursor: pointer;
+}
+
+#sidebar{
+    height: 100%;
+    width: 0;
+    position:fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 201, 201);
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 50px;
+}
+
+#sidebar a{
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: whitesmoke;
+    display: block;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+#exitbtn{
+    position: absolute;
+    cursor:pointer;
+    border:none;
+    outline:none;
+    background:none;
+    font-weight: bold;
+    font-size:40px;
+    color:rgb(27, 27, 27);
+    right: 20px;
+    top: 10px;
+}
+
+#setting{
+    position: absolute;
+    right:10;
+    bottom: 60px;
+}

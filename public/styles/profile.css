@@ -1,0 +1,55 @@
+@import "theme.css";
+@import "avatar.css";
+@import "menubtn.css";
+
+#area{
+    display: flex;
+}
+
+#left{
+    padding: 30px;
+    justify-content: center;
+}
+
+#return{
+    width: 293px;
+    height: 40px;
+    text-align: center;
+	color: black;
+	background-color: gainsboro;
+	border: 2px solid gray;
+}
+
+#entirepage{
+	margin: 40px auto 60px;
+	width: 805px;
+	font-family: "Garamond";
+}
+
+h1{
+	background-image: url('/public/assets/[svg]textbox.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 43px;
+	font-weight: bold;
+}
+.statistics{
+	background-image: url('/public/assets/[svg]textbox.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 200px;
+	width: 300px;
+	margin: 40 0 40 40;
+	text-align:center;
+	float: right;
+	font-size: 36px;
+	font-style: bold;
+	color: white;
+}
+
+.break{ 
+clear: both; 
+}
+dd.break { 
+float: none; margin: 0; height: 15px; 
+}
