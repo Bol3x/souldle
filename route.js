@@ -1,20 +1,35 @@
 const express = require('express');
+
+//controller scripts
 const controller = require('./controller/control.js');
+const customize = require('./controller/customize.js');
+const store = require('./controller/store.js');
+const search = require('./controller/searchuser.js');
 
 const app = express();
 
-//page redirects
+//landing page
 app.get('/', controller.getIndex);
-app.get('/play', controller.getPlay);
-app.get('/home', controller.getHome);
-app.get('/profile', controller.getProfile);
-app.get('/customize', controller.getCustomize);
-app.get('/shop', controller.getStore);
-app.get('/search', controller.getUserSearch);
 
-//data requests
-app.post('/shop/purchase', controller.postStorePurchase);
-app.post('/customize/save', controller.postCustomizeSave);
-app.get('/checkuser', controller.getCheckUser);
+//game page
+app.get('/play', controller.getPlay);
+
+//homepage
+app.get('/home', controller.getHome);
+
+//profile page
+app.get('/profile', controller.getProfile);
+
+//customization page
+app.get('/customize', customize.getCustomize);
+app.post('/customize/save', customize.postCustomizeSave);
+
+//store page
+app.get('/shop', store.getStore);
+app.post('/shop/purchase', store.postStorePurchase);
+
+//search user page
+app.get('/search', search.getUserSearch);
+app.get('/checkuser', search.getCheckUser);
 
 module.exports = app;
