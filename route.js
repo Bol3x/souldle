@@ -5,6 +5,7 @@ const controller = require('./controller/control.js');
 const customize = require('./controller/customize.js');
 const store = require('./controller/store.js');
 const search = require('./controller/searchuser.js');
+const gm = require('./controller/gameController.js');
 
 const app = express();
 
@@ -31,5 +32,9 @@ app.post('/shop/purchase', store.postStorePurchase);
 //search user page
 app.get('/search', search.getUserSearch);
 app.get('/checkuser', search.getCheckUser);
+
+//game page
+app.get('/game/win', gm.gamewin);
+app.get('/game/loss', gm.gameloss);
 
 module.exports = app;
