@@ -111,19 +111,38 @@
 
 .A{
 background-color: crimson;
-background-image: url("view//public/assets/Icons/AttackIcon.svg");
+background-image: url("/public/assets/Icons/AttackIcon.svg");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
 }
 .B{
 background-color: deepskyblue;
+background-image: url("/public/assets/Icons/DefendIcon.svg");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
 }
 .C{
 background-color: greenyellow;
+background-image: url("/public/assets/Icons/DodgeIcon.svg");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
 }
 .D{
 background-color: gold;
+background-image: url("/public/assets/Icons/MagicIcon.svg");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
 }
 .E{
 background-color: orchid;
+background-image: url("/public/assets/Icons/PotionIcon.svg");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
 }
 
 .correct{
