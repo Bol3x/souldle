@@ -22,7 +22,7 @@ async function run(){
         const usergen = await User.create({
             name: username,
             UID: 1,
-            password: "123",
+            password: "123456",
         })
         console.log(usergen)
     // query command to obtain 1 user

@@ -14,23 +14,31 @@
 		<div class="main">
 			<h1>Souldle</h1>
 			
+			<% if(error_msg) { %>    
+				<%=error_msg %>
+			<% } %>
+			
+			<% if(success_msg) { %>  
+				<%=success_msg %>
+			<% } %>
+			
 			<div class = "login">
-				<form onSubmit = "checkForm()">
+				<form action="/Register" method="POST">
 			
 					<label for = "Username">Username </label>
-						<input type = "text" id = "user"><br>
+						<input type = "text" id = "name" name = "name"><br>
 				
 					<label for = "Password">Password </label>
-						<input type = "text" id = "pass"><br>
+						<input type = "password" id = "password" name = "password"><br>
 					
 					<label for = "Password">Confirm Password </label>
-						<input type = "text" id = "confirmPass"><br><br>	
+						<input type = "password" id = "confirmPass" name = "confirmPass"><br><br>	
 				
 						<input type = "submit" value = "Submit"><br><br>
+					
+					<p class="smalltext">Already have an account? <a href="/login">Login</a></p>
 				</form>
-			</div>
-
-			<p class="smalltext">Already have an account? <a href="Login.html">Log-in</a></p>
+			</div>			
 		</div>
     </body>
 </html>

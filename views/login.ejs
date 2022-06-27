@@ -14,22 +14,31 @@
 		<div class="main">
 			<h1>Souldle</h1>
 			
+			<% if(error_msg) { %>    
+				<%=error_msg %>
+			<% } %>
+			
+			<% if(success_msg) { %>  
+				<%=success_msg %>
+			<% } %>
+			
 			<div class = "login">
-				<form onSubmit = "checkForm()">
+				 <form action="/login" method="POST">
 				
 					<label for = "Username">Username </label>
-						<input type = "text" id = "user"><br>
+						<input type = "text" id = "name" name = "name"><br><br>
 					
 					<label for = "Password">Password </label>
-						<input type = "text" id = "pass"><br><br>
+						<input type="password" id="password" name="password"/><br><br>
 					
 					<input type = "submit" value = "Log-In"><br><br>
 				</form>
 			</div>
 			
-			<p class="smalltext">Don't have an account? <a href="register.html">Register</a> </p>
+			<p class="smalltext">Don't have an account? <a href="/Register">Register</a> </p>
 			<br>
-			<a href="game.html">Play without an account</a>
+			
+			<a href="/play">Play without an account</a>
 			<p class="smalltext" id="no-account">Doing so will not reward you any souls while playing!</p>
 		</div>
     </body>
