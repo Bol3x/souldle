@@ -38,13 +38,11 @@ app.post('/shop/purchase', store.postStorePurchase);
 app.get('/search', search.getUserSearch);
 app.get('/checkuser', search.getCheckUser);
 
-<<<<<<< Updated upstream
 //game page
 app.get('/game/win', gm.gamewin);
 app.get('/game/loss', gm.gameloss);
 
 module.exports = app;
-=======
 //account settings page
 app.get('/settings', controller.getAccountSettings);
 
@@ -63,4 +61,3 @@ app.post('/login', isPublic, loginValidation, usercontroller.loginUser);
 app.get('/logout', isPrivate, usercontroller.logoutUser);
 
 module.exports = app;
->>>>>>> Stashed changes

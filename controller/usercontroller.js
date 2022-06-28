@@ -25,7 +25,6 @@ const register = {
 		// This line can be deleted in the next step.
 		// Adding it so that the error validation can be tested.
 		var user1 = await User.findOne({ name: name })
-		console.log(await Item.findOne({item_name: "Sword"}));
 			 
 		if (user1 != null) {
 				console.log(result);
@@ -35,39 +34,31 @@ const register = {
 		} 
 		
 		else {
-				// no match, create user (next step)
-				// for now we redirect to the login with no error.
-				const saltRounds = 10;
+			// no match, create user (next step)
+			// for now we redirect to the login with no error.
+			const saltRounds = 10;
 
-				// Hash password
-				bcrypt.hash(password, saltRounds, (err, hashed) => {
-				  const newUser = {
-					name,
-					password: hashed
-				  };
-					
-				var user = User.create(newUser, (err, user) => {
-					if (err) {
-					  req.flash('error_msg', 'Could not create user. Please try again.');
-					  res.redirect('/register');
-					  // res.status(500).send({ message: "Could not create user"});
-					} 
-					
-					else {
-						console.log(user);
+			// Hash password
+			bcrypt.hash(password, saltRounds, async (err, hashed) => {
+				const newUser = {
+				name: name,
+				password: hashed
+				};
+					try{
+						var user = new User(newUser);
+						var sword = await Item.findOne({item_name: "Sword"});
+						user.avatar.weapon = sword;
+						user.item_collection.weapons.push(sword._id);
+						user.save();
+
 						req.flash('success_msg', 'You are now registered! Login below.');
 						res.redirect('/login');
+					}catch(err){
+						console.log(err);
+						req.flash('error_msg', 'Could not create user. Please try again.');
+						res.redirect('/register');
+						// res.status(500).send({ message: "Could not create user"});
 					}
-				  });
-				
-				console.log(user);
-				user.avatar.weapon = Item.findOne({item_name: "Sword"});
-				user.item_collection.weapons.push(weapon._id);
-				console.log(user);
-				 user.save();
-			
-				
-					
 				});
 			}
 	}	
@@ -122,7 +113,7 @@ loginUser : (req, res) => {
 
 				console.log(req.session);
 
-				res.redirect('/');
+				res.redirect('/home');
 			  } else {
 				// passwords don't match
 				req.flash('error_msg', 'Incorrect password. Please try again.');
@@ -131,7 +122,7 @@ loginUser : (req, res) => {
 			});
 		} else {
 		  // No user found
-		  req.flash('error_msg', 'No registered user with that email. Please register.');
+		  req.flash('error_msg', 'No registered user with that name. Please register.');
 		  res.redirect('/register');
 		}
 	  }
