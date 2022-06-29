@@ -24,7 +24,7 @@ app.get('/play', controller.getPlay);
 app.get('/home', controller.getHome);
 
 //profile page
-app.get('/profile', profile.getSessionProfile);
+app.get('/profile', profile.getProfileUser);
 app.get('/profile/find', profile.getProfileFind);
 
 //customization page

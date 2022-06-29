@@ -4,7 +4,7 @@ $(document).ready(function () {
         var request = $.get('checkuser', {name: name});
 
         request.done(function (jqXHR){
-            location.href = '/profile?name='+name;
+            location.href = '/profile/find?name='+name;
         });
 
         request.fail(function(jqXHR){

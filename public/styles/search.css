@@ -25,11 +25,24 @@
 }
 
 #username-entry{
-    width: 50%;
+    width: 70%;
     height: 70px;
     font-size: 40px;
     background-color: lightgray;
     color:black;
+    text-align: center;
+}
+
+#username-submit{
+    width: 50%;
+    height: 70px;
+    font-size: 40px;
+    background-color: gray;
+    color:black;
+}
+
+#username-submit:active{
+    background-color: rgb(53, 53, 53);
 }
 
 #error{

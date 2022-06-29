@@ -3,6 +3,7 @@ const Item = require('../database/models/Item.js');
 
 const controller = {
 	getIndex: function(req,res){
+		// if session exists, res.render('home');
 		res.render('index');
 	},
 
