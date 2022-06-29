@@ -28,16 +28,15 @@
 			
 			<div id = "login">
 				<form action = "index.html" onSubmit = "checkForm()">				
-					<label for = "Username">Change Username </label>
-						<input type = "text" id = "user"><br>
-					
 					<label for = "Password">Change Password </label>
-						<input type = "text" id = "pass"><br><br>
+						<input type = "password" id = "password"><br><br>
 				
 				
 					<input id="submitform" type = "submit" value = "Submit"><br><br>
-						<a href="Login.html"> <button class="accountbtn" id="logoutbtn">Logout</button></a>
 				</form>
+				
+				<a href="/logout"> <button class="accountbtn" id="logoutbtn">Logout</button></a><br>
+				
 				<button class="accountbtn" id="openDelete" onclick="openForm()">Delete Account</button>
 			</div>
 		</div>

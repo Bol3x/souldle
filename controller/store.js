@@ -4,7 +4,7 @@ const Item = require('../database/models/Item.js');
 const store = {
     getStore: async function(req,res){
 		//TODO: Session Handling
-		const user = await User.findOne({name: 'Buranku'}, 'souls item_collection')
+		const user = await User.findOne({name: req.session.name}, 'souls item_collection')
 		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
 		souls = user.souls;
 		
@@ -12,8 +12,7 @@ const store = {
 		userWeapons = user.item_collection.weapons;
 		//user hats
 		userHats = user.item_collection.hats;
-
-
+	
 		//get list of items not in user's collection
 		const serverWeapons = await Item.find({equip_slot: 'weapon'});
 		weapons = serverWeapons.filter(({item_name: name1}) => !userWeapons.some(({item_name: name2}) => name2 === name1));
@@ -28,7 +27,7 @@ const store = {
 
 	postStorePurchase: async function(req, res){
 		//TODO: Session Handling
-		const user = await User.findOne({name: 'Buranku'}, "souls item_collection");
+		const user = await User.findOne({name: req.session.name}, "souls item_collection");
 		//console.log(user);
 		const item = await Item.findOne({item_name: req.body.item_name});
 		//console.log(item);

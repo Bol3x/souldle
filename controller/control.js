@@ -12,6 +12,14 @@ const controller = {
 	
 	getHome: function (req,res){
 		res.render('home');
+	},
+
+	getLogin : function(req, res){
+		res.render('login');
+	},
+	
+	getAccountSettings : function(req, res){
+		res.render('account_settings');
 	}
 }
 
