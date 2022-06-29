@@ -22,7 +22,7 @@ input[type=submit] {
     width: 200px;
 }
 
-input[type=text]{ color: black; }
+input{ color: black; }
 
 label:after { content: ": " }
 

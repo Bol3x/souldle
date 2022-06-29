@@ -95,7 +95,7 @@ loginUser : (req, res) => {
 	  User.findOne({ name: name }, (err, user) => {
 	  if (err) {
 		// Database error occurred...
-		req.flash('error_msg', 'Something happened! Please try again.');
+		req.flash('error_msg', 'An error occurred! Please try again.');
 		res.redirect('/login');
 	  } else {
 		// Successful query
