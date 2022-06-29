@@ -13,10 +13,18 @@ const controller = {
 	getHome: function (req,res){
 		res.render('home');
 	},
-
+	
+	getLogin : function(req, res){
+		res.render('login');
+	},
+	
+	getAccountSettings : function(req, res){
+		res.render('account_settings');
+	},
+			
 	getProfile: async function(req,res){
-		const name = req.query.name;
-		const uid = req.query.uid;
+		const name = req.session.name;
+		const uid = req.session.user;
 	
 		const user = await User.findOne({name, uid}, "avatar statistics").populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'});
 		//console.log(user);

@@ -4,7 +4,7 @@ const Item = require('../database/models/Item.js');
 const customize = {
     getCustomize: async function (req, res){
 		//TODO: Session Handling
-		const user = await User.findOne({name: "Buranku"}, 'avatar item_collection')
+		const user = await User.findOne({name: req.session.name}, 'avatar item_collection')
 		.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
 		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
 		//console.log(user);
@@ -33,7 +33,7 @@ const customize = {
 		//console.log(newHead);
 
 		//user update
-		const user = await User.findOne({name: 'Buranku'});
+		const user = await User.findOne({name: req.session.name});
 
 		user.avatar = {weapon: newWeapon, hat: newHead};
 		//console.log(user);

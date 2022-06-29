@@ -5,7 +5,11 @@ const controller = require('./controller/control.js');
 const customize = require('./controller/customize.js');
 const store = require('./controller/store.js');
 const search = require('./controller/searchuser.js');
-const gm = require('./controller/gameController.js');
+
+//session handling scripts 
+const { registerValidation, loginValidation } = require('./controller/uservalidation.js');
+const usercontroller = require('./controller/usercontroller');
+const { isPublic, isPrivate } = require('./controller/check-authentication');
 
 const app = express();
 
@@ -33,8 +37,21 @@ app.post('/shop/purchase', store.postStorePurchase);
 app.get('/search', search.getUserSearch);
 app.get('/checkuser', search.getCheckUser);
 
-//game page
-app.get('/game/win', gm.gamewin);
-app.get('/game/loss', gm.gameloss);
+//account settings page
+app.get('/settings', controller.getAccountSettings);
+
+//login page
+app.get('login', controller.getLogin);
+app.get('/login', isPublic, (req, res) => {res.render('login', {pageTitle: 'Login',});});
+
+//register page
+app.get('/Register', isPublic, (req, res) => {res.render('register', { pageTitle: 'Registration',});});
+
+//Post methods for form submissions
+app.post('/Register', isPublic, registerValidation, usercontroller.registerUser);
+app.post('/login', isPublic, loginValidation, usercontroller.loginUser);
+
+//logout
+app.get('/logout', isPrivate, usercontroller.logoutUser);
 
 module.exports = app;
