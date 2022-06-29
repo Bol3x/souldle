@@ -30,21 +30,6 @@ const controller = {
 		else
 			res.render('index');
 		
-	},
-			
-	getProfile: async function(req,res){
-		if(req.session.name != null) {
-			const name = req.session.name;
-			const uid = req.session.user;
-		
-			const user = await User.findOne({name, uid}, "avatar statistics").populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'});
-			//console.log(user);
-			const avatar = user.avatar;
-			const stats = user.statistics;
-			res.render('profile', {name, avatar, stats});
-		}
-		else
-			res.render('index');
 	}
 }
 
