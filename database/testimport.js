@@ -17,18 +17,17 @@ async function run(){
         
 
     //create user
-    let username = "Buranku";
+    let username = "Bolex";
     
-        const usergen = await User.create({
+        const usergen = User.create({
             name: username,
-            UID: 1,
             password: "123",
         })
         console.log(usergen)
-    // query command to obtain 1 user
+    // query command to obtain sword
         let weapon = await Item.findOne({item_name: "Sword"})
         console.log(weapon)
-    // generate avatar of user with ObjectId of crown and sword
+    // generate avatar of user with ObjectId of sword
         usergen.avatar.weapon = weapon;
         // default to add sword to user's inventory
         usergen.item_collection.weapons.push(weapon._id);

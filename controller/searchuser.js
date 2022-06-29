@@ -2,7 +2,7 @@ const User = require('../database/models/User.js');
 const Item = require('../database/models/Item.js');
 
 const search = {
-    getUserSearch: function(req,res){
+    getSearch: function(req,res){
 		res.render('search_user');
 	},
 
