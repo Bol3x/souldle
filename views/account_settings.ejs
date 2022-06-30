@@ -19,9 +19,9 @@
 			<h1>Account Options</h1>
 			
 			<div id = "delete">
-				<form action = "login.html" onSubmit = "checkForm()">
+				<form action="/delete" method="get">
 					<label>Enter Password to confirm</label>
-					<input type="password" placeholder="Enter Password" name="psw" required><br>
+					<input type="password" name="password"><br>
 					
 					<button type="submit" class="accountbtn" id ="deletebtn">Confirm Deletion</button>
 					<button type="button" class="accountbtn" id ="close" onclick = "closeForm()"> Close </button>
@@ -29,7 +29,7 @@
 			</div>
 			
 			<div id = "login">
-				<form action = "index.html" onSubmit = "checkForm()">				
+				<form action = "/change">				
 					<label for = "Password">Change Password </label>
 						<input type = "password" id = "password"><br><br>
 				

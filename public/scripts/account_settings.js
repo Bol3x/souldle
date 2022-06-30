@@ -3,7 +3,7 @@ function openForm() {
     $("#login").css("display", "none");
 }
 
-function closeForm() {
+	function closeForm() {
     $("#delete").css("display", "none");
     $("#login").css("display", "block");
 }

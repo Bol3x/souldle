@@ -52,6 +52,8 @@ input[type=submit] {
 
 input[type=text]{ color: black; }
 
+input[type=password]{ color: black; }
+
 label:after { content: ": " }
 
 form {

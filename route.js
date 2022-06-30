@@ -6,6 +6,7 @@ const profile = require('./controller/profile.js');
 const customize = require('./controller/customize.js');
 const store = require('./controller/store.js');
 const search = require('./controller/searchuser.js');
+const modify = require('./controller/account.js');
 
 //session handling scripts 
 const { registerValidation, loginValidation } = require('./controller/uservalidation.js');
@@ -41,6 +42,8 @@ app.get('/checkuser', search.getCheckUser);
 
 //account settings page
 app.get('/settings', isPrivate, controller.getAccountSettings);
+app.get('/delete', isPrivate, modify.getDeleteAccount);
+app.get('/change', isPrivate, modify.getChangePassword); 
 
 //login page
 app.get('/login', controller.getLogin);
