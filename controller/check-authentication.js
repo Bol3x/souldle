@@ -3,14 +3,14 @@ exports.isPrivate = (req, res, next) => {
   if (req.session.user) {
     return next()
   } else {
-    res.redirect('/login');
+    res.redirect('/');
   }
 };
 
 exports.isPublic = (req, res, next) => {
   // If authenticated, go to home page
   if (req.session.user) {
-    res.redirect('/');
+    res.redirect('/home');
   } else {
     return next();
   }

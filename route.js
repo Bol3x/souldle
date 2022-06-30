@@ -15,35 +15,35 @@ const { isPublic, isPrivate } = require('./controller/check-authentication');
 const app = express();
 
 //landing page
-app.get('/', controller.getIndex);
+app.get('/', isPublic, controller.getIndex);
 
 //game page
 app.get('/play', controller.getPlay);
 
 //homepage
-app.get('/home', controller.getHome);
+app.get('/home', isPrivate, controller.getHome);
 
 //profile page
-app.get('/profile', profile.getProfileUser);
-app.get('/profile/find', profile.getProfileFind);
+app.get('/profile', isPrivate, profile.getProfileUser);
+app.get('/profile/find', isPrivate, profile.getProfileFind);
 
 //customization page
-app.get('/customize', customize.getCustomize);
+app.get('/customize', isPrivate, customize.getCustomize);
 app.post('/customize/save', customize.postCustomizeSave);
 
 //store page
-app.get('/shop', store.getStore);
+app.get('/shop', isPrivate, store.getStore);
 app.post('/shop/purchase', store.postStorePurchase);
 
 //search user page
-app.get('/search', search.getSearch);
+app.get('/search', isPrivate, search.getSearch);
 app.get('/checkuser', search.getCheckUser);
 
 //account settings page
-app.get('/settings', controller.getAccountSettings);
+app.get('/settings', isPrivate, controller.getAccountSettings);
 
 //login page
-app.get('login', controller.getLogin);
+app.get('/login', controller.getLogin);
 app.get('/login', isPublic, (req, res) => {res.render('login', {pageTitle: 'Login',});});
 
 //register page

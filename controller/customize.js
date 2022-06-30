@@ -4,26 +4,21 @@ const Item = require('../database/models/Item.js');
 const customize = {
     getCustomize: async function (req, res){
 		//TODO: Session Handling
-		if(req.session.name != null) {
-			const user = await User.findOne({name: req.session.name}, 'avatar item_collection')
-			.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
-			.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
-			//console.log(user);
-			avatar = user.avatar;
+		const user = await User.findOne({name: req.session.name}, 'avatar item_collection')
+		.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
+		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
+		//console.log(user);
+		avatar = user.avatar;
 
-			//query user's weapon collection (item_collection.weapons)
-			const weapons = user.item_collection.weapons;
-			//console.log(weapons);
+		//query user's weapon collection (item_collection.weapons)
+		const weapons = user.item_collection.weapons;
+		//console.log(weapons);
 
-			//query user's headgear collection (item_collection.hats)
-			const heads = await user.item_collection.hats;
-			//console.log(heads);
+		//query user's headgear collection (item_collection.hats)
+		const heads = await user.item_collection.hats;
+		//console.log(heads);
 
-			res.render('customize', {avatar , weapons, heads});
-		}
-
-		else
-			res.render('index');
+		res.render('customize', {avatar , weapons, heads});
 	},
 
 	postCustomizeSave: async function(req,res){

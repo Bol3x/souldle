@@ -3,11 +3,7 @@ const Item = require('../database/models/Item.js');
 
 const search = {
     getSearch: function(req,res){
-		if(req.session.name != null) 
-			res.render('search_user');
-		
-		else
-			res.render('index');
+		res.render('search_user');
 	},
 
 	getCheckUser: async function(req,res){

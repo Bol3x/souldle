@@ -4,30 +4,25 @@ const Item = require('../database/models/Item.js');
 const store = {
     getStore: async function(req,res){
 		//TODO: Session Handling
-		if(req.session.name != null) {	
-			const user = await User.findOne({name: req.session.name}, 'souls item_collection')
-			.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
-			souls = user.souls;
-			
-			//user weapons
-			userWeapons = user.item_collection.weapons;
-			//user hats
-			userHats = user.item_collection.hats;
+		const user = await User.findOne({name: req.session.name}, 'souls item_collection')
+		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
+		souls = user.souls;
 		
-			//get list of items not in user's collection
-			const serverWeapons = await Item.find({equip_slot: 'weapon'});
-			weapons = serverWeapons.filter(({item_name: name1}) => !userWeapons.some(({item_name: name2}) => name2 === name1));
-			const serverHeads = await Item.find({equip_slot: "head"});
-			heads = serverHeads.filter(({item_name: name1}) => !userHats.some(({item_name: name2}) => name2 === name1));
+		//user weapons
+		userWeapons = user.item_collection.weapons;
+		//user hats
+		userHats = user.item_collection.hats;
+	
+		//get list of items not in user's collection
+		const serverWeapons = await Item.find({equip_slot: 'weapon'});
+		weapons = serverWeapons.filter(({item_name: name1}) => !userWeapons.some(({item_name: name2}) => name2 === name1));
+		const serverHeads = await Item.find({equip_slot: "head"});
+		heads = serverHeads.filter(({item_name: name1}) => !userHats.some(({item_name: name2}) => name2 === name1));
 
-			//console.log(weapons);
-			//console.log(heads);
-		
-			res.render('store', {souls, weapons, heads});
-		}
-		
-		else
-			res.render('index');
+		//console.log(weapons);
+		//console.log(heads);
+	
+		res.render('store', {souls, weapons, heads});
 	},
 
 	postStorePurchase: async function(req, res){

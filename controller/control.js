@@ -1,12 +1,10 @@
 const User = require('../database/models/User.js');
 const Item = require('../database/models/Item.js');
+const auth = require('../controller/check-authentication.js');
 
 const controller = {
 	getIndex: function(req,res){
-		if(req.session.name != null)
-			res.render('home');
-		else
-			res.render('index');
+		res.render('index');
 	},
 
 	getPlay: function (req,res){
@@ -14,10 +12,7 @@ const controller = {
 	},
 	
 	getHome: function (req,res){
-		if(req.session.name != null)
-			res.render('home');
-		else
-			res.render('index');
+		res.render('home');
 	},
 	
 	getLogin : function(req, res){
@@ -25,11 +20,7 @@ const controller = {
 	},
 	
 	getAccountSettings : function(req, res){
-		if(req.session.name != null)
-			res.render('account_settings');
-		else
-			res.render('index');
-		
+		res.render('account_settings');
 	}
 }
 
