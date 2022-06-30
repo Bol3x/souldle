@@ -21,6 +21,10 @@ const controller = {
 	
 	getAccountSettings : function(req, res){
 		res.render('account_settings');
+	},
+
+	get404: function(req,res){
+		res.render('404');
 	}
 }
 
