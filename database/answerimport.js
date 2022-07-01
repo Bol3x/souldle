@@ -11,7 +11,6 @@ async function run(){
     const answer = await Answer.create({
 		answer: "BBBBB",
         from: "Kami",
-        date: date.toDateString(),
 		hour: date.getHours()
     })
     console.log(answer)
@@ -20,7 +19,6 @@ async function run(){
     const guess = await Answer.create({
 		answer: "AAAAA",
         from: "Kamo",
-        date: date.toDateString(),
 		hour: date.getHours()
     })
     console.log(guess)
@@ -28,7 +26,6 @@ async function run(){
 	const check = await Answer.create({
 		answer: "BBABB",
         from: "GreenPLDN",
-        date: date.toDateString(),
 		hour: date.getHours()
     })
     console.log(check)
