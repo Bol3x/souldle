@@ -1,6 +1,22 @@
 const answer = ["","","","",""];
-function wait() {
-	console.log("");
+const thingy = ["",""]
+function becomeString(arr){
+	var string = "";
+	for(var i=0; i<arr.length;i++)
+	{
+		string += arr[i]
+	}
+	return string;
+}
+function setzero(s,msgarray){
+	thingy[0] = s;
+	if (thingy[1] != "")
+		updateMessage(msgarray,thingy[0],thingy[1]);
+}
+function setOne(s,msgarray){
+	thingy[1] = s;
+	if (thingy[0] != "")
+		updateMessage(msgarray,thingy[0],thingy[1]);
 }
 function checkfull(arr){
 	for(var i =0; i <arr.length;i++)
@@ -13,6 +29,22 @@ function checkfull(arr){
 		}
 	}
 	return true;
+}
+function random(){
+	var i, r, string;
+	string = "";
+	for (i=0; i<5; i++)
+	{
+		r = Math.floor(Math.random()*5) + 1;
+		switch(r){
+			case 1: string += "A";break;
+			case 2: string += "B";break;
+			case 3: string += "C";break;
+			case 4: string += "D";break;
+			case 5: string += "E";break;
+		}		
+	}
+	return string;
 }
 function insert(action,arr){
 	for(var i =0; i <arr.length;i++)
@@ -38,7 +70,7 @@ function updateIcon(lmnt,icon){
 		lmnt.addClass("E");
 }
 function updateMessage(msgarray,arr,corr){
-	for(var i =0; i <arr.length;i++)
+	for(var i=0; i <arr.length;i++)
 	{
 		updateIcon(msgarray[i],arr[i]);
 		if (arr[i] == corr[i])
@@ -68,126 +100,161 @@ $(document).ready(function() {
 	const charry = [ch1,ch2,ch3,ch4,ch5];
 	
 	//declare the local varibles
-	var correctstring;
-	var guess;
-	guess = "ABADE";
-	correctstring = "ACABA";
 	
-	//obtain correct answer from data base
+	//TODO: check if player has played already
+	$.get('game/played?',function(result)
+	{
+		if (result == "BAD")
+		{
+			alert("You have played for this hour, try again later");
+			$('#base').css("pointer-events","none");
+			$('#base').css("opacity","0.4");
+			$.get('game/leave');
+		}
+	});
 	
-	//obtain guess from database
+		//if yes, show popup saying that they played already and cannot play again
+			//disable all things that would allow them to make another submission
+		//else
+			//enable all things that would allow them to make another submission
+	//console.log(random()); //random test
+	var datetoday = new Date();
+	var currentHour = datetoday.getHours();
+	var guess, correctstring;
+	console.log(currentHour);
+	
+	//obtain guess and correctanswer from database
+	$.get('game/guess', {from: {$ne:'Kami'}, hour : currentHour},
+	function (thing){setzero(thing.message, msgarray);});
+	$.get('game/answer', {from: 'Kami', hour : currentHour},
+	function(thing){setOne(thing.message, msgarray);});
+	
 	
 	//initialize message
-	updateMessage(msgarray,guess,correctstring);
 	
 	//make an onclick function for each action button
 	$("#c1").click(function(){
-	answer[0] = "";
-	$("#c1").prop('class','iconbox');
-	console.log(answer);
+		answer[0] = "";
+		$("#c1").prop('class','iconbox');
 	});
 	$("#c2").click(function(){
-	answer[1] = "";
-	$("#c2").prop('class','iconbox');
-	console.log(answer);
+		answer[1] = "";
+		$("#c2").prop('class','iconbox');
 	});
 	$("#c3").click(function(){
-	answer[2] = "";
-	$("#c3").prop('class','iconbox');
-	console.log(answer);
+		answer[2] = "";
+		$("#c3").prop('class','iconbox');
 	});
 	$("#c4").click(function(){
-	answer[3] = "";
-	$("#c4").prop('class','iconbox');
-	console.log(answer);
+		answer[3] = "";
+		$("#c4").prop('class','iconbox');
 	});
 	$("#c5").click(function(){
-	answer[4] = "";
-	$("#c5").prop('class','iconbox');
-	console.log(answer);
+		answer[4] = "";
+		$("#c5").prop('class','iconbox');
 	});
 
 	$("#a").click(function(){
-	var ps = insert("A",answer);
-	charry[ps].addClass("A");
-	console.log(answer);
+		if (!(checkfull(answer)))
+		{
+			$('#errormsg').text("");
+			var ps = insert("A",answer);
+			charry[ps].addClass("A");
+		}
+		else
+		{
+			$('#errormsg').text("Answer is full");
+		}
 	});
 	$("#b").click(function(){
-	var ps = insert("B",answer);
-	charry[ps].addClass("B");
-	console.log(answer);
+		if (!(checkfull(answer)))
+		{
+			$('#errormsg').text("");
+			var ps = insert("B",answer);
+			charry[ps].addClass("B");
+		}
+		else
+		{
+			$('#errormsg').text("Answer is full");
+		}
 	});
 	$("#c").click(function(){
-	var ps = insert("C",answer);
-	charry[ps].addClass("C");
-	console.log(answer);
+		if (!(checkfull(answer)))
+		{
+			$('#errormsg').text("");
+			var ps = insert("C",answer);
+			charry[ps].addClass("C");
+		}
+		else
+		{
+			$('#errormsg').text("Answer is full");
+		}
 	});
 	$("#d").click(function(){
-	var ps = insert("D",answer);
-	charry[ps].addClass("D");
-	console.log(answer);
+		if (!(checkfull(answer)))
+		{
+			$('#errormsg').text("");
+			var ps = insert("D",answer);
+			charry[ps].addClass("D");
+		}
+		else
+		{
+			$('#errormsg').text("Answer is full");
+		}
 	});
 	$("#e").click(function(){
-	var ps = insert("E",answer);
-	charry[ps].addClass("E");
-	console.log(answer);
+		if (!(checkfull(answer)))
+		{
+			$('#errormsg').text("");
+			var ps = insert("E",answer);
+			charry[ps].addClass("E");
+		}
+		else
+		{
+			$('#errormsg').text("Answer is full");
+		}
 	});
 	
 	//submit button event
 	$("#base").click(function (){
-		console.log("test");
 		var souladd = 0;
 		if (checkfull(answer)) //checks if answer is complete
 		{
 			for (var i = 0;i<answer.length;i++)
 			{
-				if (answer[i] == correctstring[i])
+				if (answer[i] == thingy[1][i])
 				{
 					charry[i].addClass("correct");
-					setTimeout(wait, 100);
 					souladd += 1;
 				}
 				else
 				{
 					charry[i].addClass("wrong");
-					setTimeout(wait, 100);
 				}
 			}
-		if(souladd == 5)
-		{
-			$.post('/game/win', function (data, textStatus, jqXHR) {
-					var screen = document.createElement("div");
-					var message = document.createElement("div");
-					var stats = document.createElement("div");
-					var wst = document.createElement("div");
-					var max = document.createElement("div");
-					var nwin = document.createElement("div");
-					var ngame = document.createElement("div");
-					var souls = document.createElement("div");
-					message.text(data.message);
-					stats.text("Statistics");
-					wst.text("Win Streak: " + data.winst);
-					max.text("Max Streak: " + data.max);
-					nwin.text("Number of Wins: " + data.wins);
-					ngame.text("Number of Games: " + data.ngms);
-					souls.text("Soul Count: " + data.souls);
-					screen.appendChild(message);
-					stats.appendChild(wst);
-					stats.appendChild(max);
-					stats.appendChild(nwin);
-					stats.appendChild(ngame);
-					screen.appendChild(stats);
-					screen.appendChild(souls);
-					$("#Bossbox").replaceWith(screen); //turn boss screen to win screen
-            });
+			if(souladd == 5)
+			{
+				alert("You win! you gained 5 souls");
+				var ans = becomeString(answer);
+				$.post('game/upload', {answer: ans});
+				$.post('game/win');
+				$('#base').css("pointer-events","none");
+				$('#base').css("opacity","0.4");
+			}
+			else
+			{
+				alert("You lose... you gained " + souladd + " souls");
+				var ans = becomeString(answer);
+				$.post('game/upload', {answer: ans});
+				$.post('game/lose', {sgain: souladd});
+				$('#base').css("pointer-events","none");
+				$('#base').css("opacity","0.4");
+			}
+		//we could place a pop up here saying if they won today or not, but it will also notify them how many souls they got today.
 		}
 		else
 		{
-			$.post('/game/loss');
+			
 		}
-		//we could place a pop up here saying if they won today or not, but it will also notify them how many souls they got today.
-		}
-		//goes through the local answer string (for loop)
-		
 	});
 });
