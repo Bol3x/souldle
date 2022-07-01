@@ -50,8 +50,8 @@ app.get('/checkuser', search.getCheckUser);
 
 //account settings page
 app.get('/settings', isPrivate, controller.getAccountSettings);
-app.get('/delete', isPrivate, modify.getDeleteAccount);
-app.get('/change', isPrivate, modify.getChangePassword); 
+app.post('/delete', isPrivate, modify.getDeleteAccount);
+app.post('/change', isPrivate, modify.getChangePassword); 
 
 //login page
 app.get('/login', controller.getLogin);

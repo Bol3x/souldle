@@ -1,30 +1,57 @@
 const User = require('../database/models/User.js');
+const bcrypt = require('bcrypt');
 
 const modify = {
-	getDeleteAccount : async function(req, res) {	
-		const account = req.session.name;
+	getDeleteAccount : async function(req, res) {
+		var myquery = {name : req.session.name};
 		
-		const user = await User.findOne({name : account});
+		var pass = req.body.password;
 		
-		User.deleteOne({_id : user._id});
-		User.deleteOne({name : user.name});
-		User.deleteOne({user});
-
-		console.log(user._id);
-		console.log(user.name);
-		console.log(user);
+		const user = await User.findOne({name : req.session.name});
 		
-		res.render('index');
+		bcrypt.compare(pass, user.password, function(err,result){
+			if (result) {
+				User.deleteOne(user, function(err,res) {
+					if (err) 
+						throw err;
+				
+						console.log("values updated");
+					});
+				
+				req.session.destroy(() => {
+					res.clearCookie('connect.sid');
+					res.redirect('/');
+				});
+			}
+			
+			else {
+				res.render('account_settings');
+			}
+		});
 	},
 	
 	getChangePassword : async function(req, res) {
-		const account = req.session.name;
+		var myquery = {name : req.session.name};
 		
-		const user = await User.findOne({name : account});
+		var pass = req.body.password;
 		
-		User.updateOne({name : user.name}, { $set: { "password" : req.body.password} } );
+		const user = await User.findOne({name : req.session.name});
 		
-		res.render('index');
+		const newpass = await bcrypt.hash(pass, 10);
+		
+		User.updateOne(user, {$set: {password : newpass}}, function(err, result) {
+			if (result){
+				console.log("values updated");
+			
+				req.session.destroy(() => {
+					res.clearCookie('connect.sid');
+					res.redirect('/');
+				});
+			}		
+			
+			else 
+				res.render('account_settings');
+		});		
 	}
 }
 

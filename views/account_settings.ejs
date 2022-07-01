@@ -11,17 +11,14 @@
 
     <body>
 		<div class ="main">
-			<script>$(document).ready(() => $("header").load("menubtn.html"));</script>
-			<header></header>
-			
 			<%- include('./partials/nav.ejs') %>
 			
 			<h1>Account Options</h1>
 			
 			<div id = "delete">
-				<form action="/delete" method="get">
+				<form action="/delete" method="POST">
 					<label>Enter Password to confirm</label>
-					<input type="password" name="password"><br>
+					<input type="password" id="password" name="password"><br>
 					
 					<button type="submit" class="accountbtn" id ="deletebtn">Confirm Deletion</button>
 					<button type="button" class="accountbtn" id ="close" onclick = "closeForm()"> Close </button>
@@ -29,9 +26,9 @@
 			</div>
 			
 			<div id = "login">
-				<form action = "/change">				
+				<form action = "/change" method="POST">				
 					<label for = "Password">Change Password </label>
-						<input type = "password" id = "password"><br><br>
+						<input type = "password" id="password" name="password"><br><br>
 				
 				
 					<input id="submitform" type = "submit" value = "Submit"><br><br>
