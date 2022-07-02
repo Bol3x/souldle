@@ -24,6 +24,7 @@
 			</div>
 		</div>
 		<div id="avatar">
+					<% if (avatar !== null){ %>
 					<img id="base" src="/public/assets/base.svg">
 					<img    class="weapon" 
 							id="<%= avatar.weapon.item_type %>" 
@@ -37,6 +38,15 @@
 							data-name="<%= avatar.hat.item_name%>"
 						>
 					<% }else{ %>
+					<img	class="head">
+					<% } %>
+					<% }else{ %>
+					<img id="base" src="/public/assets/base.svg">
+					<img    class="weapon" 
+							id="shorthandle" 
+							src="/public/assets/Weapons/sword"
+							data-name="sword"
+						>
 					<img	class="head">
 					<% } %>
 				</div>
