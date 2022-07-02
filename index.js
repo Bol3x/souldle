@@ -25,8 +25,9 @@ app.use(express.static(__dirname + '/view/'));
 app.use('/public', express.static(__dirname + '/public/'));
 
 //server start
-var server = app.listen(process.env.PORT || 3000, function(){
-	console.log("server is running at port: " + port);
+PORT = process.env.PORT || 3000;
+app.listen(PORT, function(){
+	console.log("server is running at port: " + PORT);
 });
 
 // Sessions
