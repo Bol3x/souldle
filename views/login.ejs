@@ -14,7 +14,15 @@
 		<div class="main">
 			<h1>Souldle</h1>		
 			<div class = "login">
-				 <form action="/login" method="POST">
+				<% if(error_msg) { %>    
+					<p style="font-size:40%"> <%= error_msg %> </p>
+				<% } %>
+			
+				<% if(success_msg) { %>  
+					 <p style="font-size:40%"> <%= success_msg %> </p>
+				<% } %>		
+				
+				<form action="/login" method="POST">
 				
 					<label for = "Username">Username </label>
 						<input type = "text" id = "name" name = "name"><br><br>

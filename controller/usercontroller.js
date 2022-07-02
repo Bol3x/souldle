@@ -25,9 +25,15 @@ const register = {
 		// This line can be deleted in the next step.
 		// Adding it so that the error validation can be tested.
 		var user1 = await User.findOne({ name: name })
-			 
-		if (user1 != null) {
-				console.log(result);
+		
+		if(req.body.name.toLowerCase() == "kami" || 
+		   req.body.name.toLowerCase() == "kamo") {
+		
+			req.flash('error_msg', 'Sorry, there can only be 1 God in this world ;)');
+			res.redirect('/Register');	
+		}
+		
+		else if (user1 != null) {
 				// found a match, return to login with error
 				req.flash('error_msg', 'User already exists. Please login.');
 				res.redirect('/login');

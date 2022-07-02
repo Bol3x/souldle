@@ -24,7 +24,7 @@ const game = {
             from: tfrom,
             hour: thour
         }
-		if (tfrom != "")
+		if (req.session.name != null)
 		{
 		try{
 			var answ = new Answer(ans);
@@ -40,6 +40,8 @@ const game = {
 	getPlayed: async function(req,res){
 		var datetoday = new Date();
 		var currentHour = datetoday.getHours();
+		if (req.session.name != null)
+		{
 		const played = await Answer.findOne({from: req.session.name, hour : currentHour});
 		if (played == null)
 			//we are good
@@ -47,6 +49,7 @@ const game = {
 		else
 			//they have already played
 			res.send("BAD");
+		}
 	},
 	getAnswer: async function(req,res){
 		const answer = await Answer.findOne(req.query); //tentative name of automated admin that will give answers
@@ -56,14 +59,15 @@ const game = {
 			res.send({message : answer.answer});
 	}, 
 	getGuess: async function(req,res){
-		const answer = await Answer.findOne(req.query);
+		const answer = await Answer.findOne(req.query).limit(1).sort({$natural:-1});
 		if (answer == null)
 			res.sendStatus(404);
 		else
 			res.send({message : answer.answer});
 	},
 	gamewin : async function(req, res){
-		var myquery = { name: req.session.name};
+		var myquery = {name: req.session.name};
+		if (req.session.name != null){
 		const user = await User.findOne({name: req.session.name});
 		var incvalues = { $inc: {souls: 5, "statistics.win_streak": 1, "statistics.num_wins": 1, "statistics.num_games": 1 }};
 		var posinc = {$inc: {"statistics.max_streak": 1}};
@@ -76,9 +80,11 @@ const game = {
 			if (err) throw err;
 			console.log("values updated");
 		});
+		}
 	},
 	gameloss: async function(req,res){
 		var myquery = { name: req.session.name };
+		if (req.session.name != null){
 		console.log(req.session.name);
 		var souladd = req.body.sgain;
 		console.log(souladd);
@@ -88,6 +94,7 @@ const game = {
 			if (err) throw err;
 			console.log("values updated");
 		});}
+	}
 }
 
 module.exports = game;

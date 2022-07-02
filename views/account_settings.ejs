@@ -13,8 +13,13 @@
 		<div class ="main">
 			<%- include('./partials/nav.ejs') %>
 			
+			
 			<h1>Account Options</h1>
 			
+			<% if(error_msg) { %>    
+					<p style="font-size:110%"> <%= error_msg %> </p>
+				<% } %>
+				
 			<div id = "delete">
 				<form action="/delete" method="POST">
 					<label>Enter Password to confirm</label>
@@ -28,9 +33,11 @@
 			<div id = "login">
 				<form action = "/change" method="POST">				
 					<label for = "Password">Change Password </label>
-						<input type = "password" id="password" name="password"><br><br>
+						<input type = "password" id="password" name="password" minlength="6"><br><br>
 				
-				
+					<label for = "Password">Confirm Password </label>
+						<input type = "password" id = "confirmPass" name = "confirmPass"><br><br>		
+					
 					<input id="submitform" type = "submit" value = "Submit"><br><br>
 				</form>
 				
