@@ -32,7 +32,28 @@ var server = app.listen(port, hostname, () =>{
 	console.log("server is running at: " + hostname + ":" + port);
 })
 
+// Sessions
+app.use(session({
+	secret: 'somegibberishsecret',
+	store: new MongoStore({ mongooseConnection: mongoose.connection }),
+	resave: false,
+	saveUninitialized: true,
+	cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
+}));
+
+// Flash
+app.use(flash());
+
+// Global messages vars
+app.use((req, res, next) => {
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	next();
+});
+
 // automated answer processes for game
+
+//run on startup
 resetAnswers();
 cron.schedule("0 * * * *", function(){
 	//script will run every hour
@@ -64,22 +85,3 @@ function resetAnswers(){
 
 // server routes
 app.use('/', routes);
-
-// Sessions
-app.use(session({
-	secret: 'somegibberishsecret',
-	store: new MongoStore({ mongooseConnection: mongoose.connection }),
-	resave: false,
-	saveUninitialized: true,
-	cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
-}));
-
-// Flash
-app.use(flash());
-
-// Global messages vars
-app.use((req, res, next) => {
-	res.locals.success_msg = req.flash('success_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	next();
-});
