@@ -25,8 +25,7 @@ app.use(express.static(__dirname + '/view/'));
 app.use('/public', express.static(__dirname + '/public/'));
 
 //server start
-const PORT = process.env.PORT || 3000;
-var server = app.listen(PORT, function(){
+var server = app.listen(process.env.PORT || 3000, function(){
 	console.log("server is running at port: " + port);
 });
 
