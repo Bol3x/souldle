@@ -1,26 +1,31 @@
 const User = require('../database/models/User.js');
 const Answer = require('../database/models/Answer.js');
+const auth = require('../controller/check-authentication.js');
 const game = {
-	uploadAnswer: async function(req,res){
-		/*
-            when submitting forms using HTTP POST method
-            the values in the input fields are stored in `req.body` object
-            each <input> element is identified using its `name` attribute
-            Example: the value entered in <input type="text" name="fName">
-            can be retrieved using `req.body.fName`
-        */
+	getGame: async function (req, res){
+		const user = await User.findOne({name: req.session.name}, 'avatar item_collection')
+		.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
+		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
+		avatar = user.avatar;
+
+		res.render('game', {avatar});
+	},
+	leavegame: async function(req,res){
+        res.redirect('home');
+    },
+	uploadAnswer: function(req,res){
 		var datetoday = new Date();
 		var currentHour = datetoday.getHours();
-		
         var tfrom = req.session.name;
         var tanswer = req.body.answer;
         var thour = currentHour;
-
+		
         const ans = {
             answer: tanswer,
             from: tfrom,
             hour: thour
         }
+		
 		try{
 			var answ = new Answer(ans);
 			answ.save();
@@ -31,7 +36,6 @@ const game = {
 			req.flash('error_msg', 'Could not submit answer, please try again.');
 			res.redirect('/play');
 		}
-
 	},
 	getPlayed: async function(req,res){
 		var datetoday = new Date();
@@ -73,7 +77,6 @@ const game = {
 			console.log("values updated");
 		});
 	},
-	
 	gameloss: async function(req,res){
 		var myquery = { name: req.session.name };
 		console.log(req.session.name);
