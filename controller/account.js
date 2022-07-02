@@ -25,7 +25,8 @@ const modify = {
 			}
 			
 			else {
-				res.render('account_settings');
+				req.flash('error_msg', 'Incorrect password. Please try again.');
+				res.redirect('/settings');
 			}
 		});
 	},
@@ -35,23 +36,29 @@ const modify = {
 		
 		var pass = req.body.password;
 		
+		var confirmpass = req.body.confirmPass;
+		
 		const user = await User.findOne({name : req.session.name});
 		
 		const newpass = await bcrypt.hash(pass, 10);
 		
-		User.updateOne(user, {$set: {password : newpass}}, function(err, result) {
-			if (result){
-				console.log("values updated");
-			
-				req.session.destroy(() => {
-					res.clearCookie('connect.sid');
-					res.redirect('/');
-				});
-			}		
-			
-			else 
-				res.render('account_settings');
-		});		
+		if(pass == confirmpass) {
+			User.updateOne(user, {$set: {password : newpass}}, function(err, result) {
+				if (result){
+					console.log("values updated");
+					
+					res.redirect('/home');
+				}		
+				
+				else 
+					res.render('account_settings');
+			});	
+		}
+		
+		else {
+			req.flash('error_msg', 'Passwords must match. Please try again.');
+			res.redirect('/settings');
+		}
 	}
 }
 

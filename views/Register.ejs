@@ -14,13 +14,13 @@
 		<div class="main">
 			<h1>Souldle</h1>
 			
-			<% if(error_msg) { %>    
-				<%=error_msg %>
-			<% } %>
+				<% if(error_msg) { %>    
+					<p style="font-size:110%"> <%= error_msg %> </p>
+				<% } %>
 			
-			<% if(success_msg) { %>  
-				<%=success_msg %>
-			<% } %>
+				<% if(success_msg) { %>  
+					 <p style="font-size:110%"> <%= success_msg %> </p>
+				<% } %>		
 			
 			<div class = "login">
 				<form action="/Register" method="POST">
