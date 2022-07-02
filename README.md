@@ -33,7 +33,6 @@ Users who are not registered to the server can still play Souldle, but will not 
 - [`views`](/views) stores all the Embedded JavaScript (EJS) files and partials to be used by the server API for rendering webpages.
 - [`route.js`](/route.js) handles the server response for each client request based on the specific path requested.
 - [`index.js`](/index.js) is the main server application
-- [`.env`](/.env) handles the environment variables for where the server is to run on.
 
 ## Features
 - ### Game
