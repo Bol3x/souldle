@@ -26,9 +26,8 @@ app.use('/public', express.static(__dirname + '/public/'));
 
 //server start
 dotenv.config();
-const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
-var server = app.listen(port, hostname, () =>{
+const port = process.env.PORT || 3000;
+var server = app.listen(port, () =>{
 	console.log("server is running at: " + hostname + ":" + port);
 })
 
