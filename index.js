@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const dotenv = require(`dotenv`);
 const cron = require('node-cron');
 
 const routes = require('./route.js');
@@ -9,7 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 
-mongoose.connect("mongodb://localhost/souldletestdb");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/souldletestdb");
 const Answer = require('./database/models/Answer');
 
 const app = new express();
@@ -25,11 +24,11 @@ app.use(express.static(__dirname + '/view/'));
 app.use('/public', express.static(__dirname + '/public/'));
 
 //server start
-dotenv.config();
-const port = process.env.PORT || 3000;
-var server = app.listen(port, () =>{
+require(`dotenv`).config();
+const PORT = process.env.PORT || 3000;
+var server = app.listen(PORT, function(){
 	console.log("server is running at port: " + port);
-})
+});
 
 // Sessions
 app.use(session({

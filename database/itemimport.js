@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost/souldletestdb")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/souldletestdb")
 
 const Item = require('./models/Item')
 
