@@ -8,7 +8,7 @@ const profile = {
 
 		const avatar = user.avatar;
 		const stats = user.statistics;
-		res.render('profile', {name, avatar, stats});
+		res.render('profile', {name, avatar, stats, isSession: true});
     },
 
     getProfileFind: async function(req,res){
@@ -18,7 +18,7 @@ const profile = {
 
 		const avatar = user.avatar;
 		const stats = user.statistics;
-		res.render('profile', {name, avatar, stats});
+		res.render('profile', {name, avatar, stats, isSession: false});
 	}
 }
 
