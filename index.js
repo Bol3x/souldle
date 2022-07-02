@@ -81,6 +81,9 @@ function resetAnswers(){
 	var key = generateAnswerKey();
 	console.log("key: " + key);
 	AnswerKey = Answer.create({answer: key, hour: hour, from: "Kami"});
+
+	for(var i=1; i<=3; i++)
+		Answer.create({answer: generateAnswerKey(), hour: hour, from: "Kamo"});
 }
 
 // server routes

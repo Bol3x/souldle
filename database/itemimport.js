@@ -69,7 +69,7 @@ async function run(){
 		const darkhelm = await Item.create({
 			item_name: "Dark Helmet", 
 			equip_slot: "head", 
-			item_type: "hat", 
+			item_type: "helmet", 
 			file_name: "DarkHelm.svg",
 			cost: 5
 		});
@@ -79,7 +79,7 @@ async function run(){
 		const lighthelm = await Item.create({
 			item_name: "Light Helmet", 
 			equip_slot: "head", 
-			item_type: "hat", 
+			item_type: "helmet", 
 			file_name: "LightHelm.svg",
 			cost: 5
 		});
