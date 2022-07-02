@@ -19,32 +19,12 @@ function setOne(s,msgarray){
 		updateMessage(msgarray,thingy[0],thingy[1]);
 }
 function checkfull(arr){
-	for(var i =0; i <arr.length;i++)
-	{
-		if (arr[i] == "")
-		{
-			console.log("answer not full");
-			//maybe add a popup here
+	for(var i =0; i <arr.length;i++){
+		if (arr[i] == ""){
 			return false;
 		}
 	}
 	return true;
-}
-function random(){
-	var i, r, string;
-	string = "";
-	for (i=0; i<5; i++)
-	{
-		r = Math.floor(Math.random()*5) + 1;
-		switch(r){
-			case 1: string += "A";break;
-			case 2: string += "B";break;
-			case 3: string += "C";break;
-			case 4: string += "D";break;
-			case 5: string += "E";break;
-		}		
-	}
-	return string;
 }
 function insert(action,arr){
 	for(var i =0; i <arr.length;i++)
@@ -83,6 +63,14 @@ function updateMessage(msgarray,arr,corr){
 		}
 	}
 }
+function closeInteract()
+{
+	$('#avatar').css("pointer-events","none");
+	$('#avatar').css("opacity","0.4");
+	$('.button').css("pointer-events","none");
+	$('.button').css("opacity","0.4");
+	$('.iconbox').css("opacity","0.4");
+}
 $(document).ready(function() {
 	//get the divs that will be graphically updated via getElement or $()
 	const m1 = $("#msg1");
@@ -98,39 +86,24 @@ $(document).ready(function() {
 	//maybe place the divs in an array, that might be helpful
 	const msgarray = [m1,m2,m3,m4,m5];
 	const charry = [ch1,ch2,ch3,ch4,ch5];
-	
-	//declare the local varibles
-	
-	//TODO: check if player has played already
-	$.get('game/played?',function(result)
-	{
+	//check if player has played already
+	$.get('game/played?',function(result){
 		if (result == "BAD")
 		{
 			alert("You have played for this hour, try again later");
-			$('#base').css("pointer-events","none");
-			$('#base').css("opacity","0.4");
+			closeInteract();
 			$.get('game/leave');
 		}
 	});
-	
-		//if yes, show popup saying that they played already and cannot play again
-			//disable all things that would allow them to make another submission
-		//else
-			//enable all things that would allow them to make another submission
-	//console.log(random()); //random test
 	var datetoday = new Date();
 	var currentHour = datetoday.getHours();
 	var guess, correctstring;
-	console.log(currentHour);
 	
 	//obtain guess and correctanswer from database
 	$.get('game/guess', {from: {$ne:'Kami'}, hour : currentHour},
 	function (thing){setzero(thing.message, msgarray);});
 	$.get('game/answer', {from: 'Kami', hour : currentHour},
 	function(thing){setOne(thing.message, msgarray);});
-	
-	
-	//initialize message
 	
 	//make an onclick function for each action button
 	$("#c1").click(function(){
@@ -216,12 +189,10 @@ $(document).ready(function() {
 	});
 	
 	//submit button event
-	$("#base").click(function (){
+	$("#avatar").click(function (){
 		var souladd = 0;
-		if (checkfull(answer)) //checks if answer is complete
-		{
-			for (var i = 0;i<answer.length;i++)
-			{
+		if (checkfull(answer)){ //checks if answer is complete
+			for (var i = 0;i<answer.length;i++){
 				if (answer[i] == thingy[1][i])
 				{
 					charry[i].addClass("correct");
@@ -240,6 +211,9 @@ $(document).ready(function() {
 				$.post('game/win');
 				$('#base').css("pointer-events","none");
 				$('#base').css("opacity","0.4");
+				$('#button').css("pointer-events","none");
+				$('#button').css("opacity","0.4");
+				$.get('game/leave');
 			}
 			else
 			{
@@ -247,14 +221,16 @@ $(document).ready(function() {
 				var ans = becomeString(answer);
 				$.post('game/upload', {answer: ans});
 				$.post('game/lose', {sgain: souladd});
-				$('#base').css("pointer-events","none");
-				$('#base').css("opacity","0.4");
+				$('#avatar').css("pointer-events","none");
+				$('#avatar').css("opacity","0.4");
+				$('#button').css("pointer-events","none");
+				$('#button').css("opacity","0.4");
+				$.get('game/leave');
 			}
 		//we could place a pop up here saying if they won today or not, but it will also notify them how many souls they got today.
 		}
-		else
-		{
-			
+		else{
+			$('#errormsg').text("Answer isn't complete");
 		}
 	});
 });

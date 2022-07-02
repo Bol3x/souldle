@@ -20,14 +20,15 @@ const app = express();
 app.get('/', isPublic, controller.getIndex);
 
 //game page
-app.get('/play',isPrivate, controller.getPlay);
+app.get('/play',isPrivate, gm.getGame);
 app.post('/game/win', gm.gamewin);
 app.post('/game/lose', gm.gameloss);
 app.get('/game/guess', gm.getGuess);
 app.get('/game/answer', gm.getAnswer);
 app.get('/game/played?', gm.getPlayed);
 app.post('/game/upload',gm.uploadAnswer);
-app.get('/game/leave', isPrivate, controller.getHome);
+app.get('/game/leave', gm.leavegame);
+
 
 //homepage
 app.get('/home', isPrivate, controller.getHome);
