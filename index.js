@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cron = require('node-cron');
+require(`dotenv`).config();
 
 const routes = require('./route.js');
 
@@ -24,7 +25,6 @@ app.use(express.static(__dirname + '/view/'));
 app.use('/public', express.static(__dirname + '/public/'));
 
 //server start
-require(`dotenv`).config();
 const PORT = process.env.PORT || 3000;
 var server = app.listen(PORT, function(){
 	console.log("server is running at port: " + port);
