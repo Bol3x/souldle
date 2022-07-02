@@ -87,12 +87,12 @@ $(document).ready(function() {
 	const msgarray = [m1,m2,m3,m4,m5];
 	const charry = [ch1,ch2,ch3,ch4,ch5];
 	//check if player has played already
-	$.get('game/played?',function(result){
+	$.get('/game/played',function(result){
 		if (result == "BAD")
 		{
 			alert("You have played for this hour, try again later");
 			closeInteract();
-			$.get('game/leave');
+			window.location.href = '/home';
 		}
 	});
 	var datetoday = new Date();
@@ -213,7 +213,7 @@ $(document).ready(function() {
 				$('#base').css("opacity","0.4");
 				$('#button').css("pointer-events","none");
 				$('#button').css("opacity","0.4");
-				$.get('game/leave');
+				window.location.href = '/home';
 			}
 			else
 			{
@@ -225,7 +225,7 @@ $(document).ready(function() {
 				$('#avatar').css("opacity","0.4");
 				$('#button').css("pointer-events","none");
 				$('#button').css("opacity","0.4");
-				$.get('game/leave');
+				window.location.href = '/home';
 			}
 		//we could place a pop up here saying if they won today or not, but it will also notify them how many souls they got today.
 		}

@@ -10,9 +10,7 @@ const game = {
 
 		res.render('game', {avatar});
 	},
-	leavegame: async function(req,res){
-        res.redirect('home');
-    },
+	
 	uploadAnswer: function(req,res){
 		var datetoday = new Date();
 		var currentHour = datetoday.getHours();

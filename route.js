@@ -25,9 +25,8 @@ app.post('/game/win', gm.gamewin);
 app.post('/game/lose', gm.gameloss);
 app.get('/game/guess', gm.getGuess);
 app.get('/game/answer', gm.getAnswer);
-app.get('/game/played?', gm.getPlayed);
+app.get('/game/played', gm.getPlayed);
 app.post('/game/upload',gm.uploadAnswer);
-app.get('/game/leave', gm.leavegame);
 
 
 //homepage
