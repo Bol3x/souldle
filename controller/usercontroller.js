@@ -7,7 +7,7 @@ const register = {
 	registerUser : async (req, res) => {
   // 1. Validate request
 
-  // 2. If VALID, find if email exists in users
+  // 2. If VALID, find if name exists in users
   //      NEW USER (no results retrieved)
   //        a. Hash password
   //        b. Create user
@@ -74,7 +74,7 @@ const register = {
 loginUser : (req, res) => {
   // 1. Validate request
 
-  // 2. If VALID, find if email exists in users
+  // 2. If VALID, find if name exists in users
   //      EXISTING USER (match retrieved)
   //        a. Check if password matches hashed password in database
   //        b. If MATCH, save info to session and redirect to home
