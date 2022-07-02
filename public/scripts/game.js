@@ -63,8 +63,7 @@ function updateMessage(msgarray,arr,corr){
 		}
 	}
 }
-function closeInteract()
-{
+function closeInteract(){
 	$('#avatar').css("pointer-events","none");
 	$('#avatar').css("opacity","0.4");
 	$('.button').css("pointer-events","none");
@@ -87,7 +86,7 @@ $(document).ready(function() {
 	const msgarray = [m1,m2,m3,m4,m5];
 	const charry = [ch1,ch2,ch3,ch4,ch5];
 	//check if player has played already
-	$.get('/game/played',function(result){
+	$.get('game/played?',function(result){
 		if (result == "BAD")
 		{
 			alert("You have played for this hour, try again later");
@@ -103,8 +102,7 @@ $(document).ready(function() {
 	$.get('game/guess', {from: {$ne:'Kami'}, hour : currentHour},
 	function (thing){setzero(thing.message, msgarray);});
 	$.get('game/answer', {from: 'Kami', hour : currentHour},
-	function(thing){setOne(thing.message, msgarray);});
-	
+	function(thing){setOne(thing.message, msgarray);});	
 	//make an onclick function for each action button
 	$("#c1").click(function(){
 		answer[0] = "";
@@ -190,6 +188,11 @@ $(document).ready(function() {
 	
 	//submit button event
 	$("#avatar").click(function (){
+		if(thingy[0] == "" || thingy[1] == ""){
+		alert("no guess/answer found in database");
+		closeInteract();
+		window.location.href = '/home';}
+		else{
 		var souladd = 0;
 		if (checkfull(answer)){ //checks if answer is complete
 			for (var i = 0;i<answer.length;i++){
@@ -230,7 +233,6 @@ $(document).ready(function() {
 		//we could place a pop up here saying if they won today or not, but it will also notify them how many souls they got today.
 		}
 		else{
-			$('#errormsg').text("Answer isn't complete");
-		}
-	});
+			$('#errormsg').text("Answer isn't complete");}
+	}});
 });
