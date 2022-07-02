@@ -20,7 +20,7 @@ const app = express();
 app.get('/', isPublic, controller.getIndex);
 
 //game page
-app.get('/play',isPrivate, gm.getGame);
+app.get('/play', gm.getGame);
 app.post('/game/win', gm.gamewin);
 app.post('/game/lose', gm.gameloss);
 app.get('/game/guess', gm.getGuess);
