@@ -6,11 +6,12 @@ const game = {
 		const user = await User.findOne({name: req.session.name}, 'avatar item_collection')
 		.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
 		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
+		if (user != null){
 		avatar = user.avatar;
-
-		res.render('game', {avatar});
+		res.render('game', {avatar});}
+		else
+		res.render('game', {avatar : null});
 	},
-	
 	uploadAnswer: function(req,res){
 		var datetoday = new Date();
 		var currentHour = datetoday.getHours();
@@ -23,7 +24,8 @@ const game = {
             from: tfrom,
             hour: thour
         }
-		
+		if (tfrom != "")
+		{
 		try{
 			var answ = new Answer(ans);
 			answ.save();
@@ -33,7 +35,7 @@ const game = {
 			console.log(err);
 			req.flash('error_msg', 'Could not submit answer, please try again.');
 			res.redirect('/play');
-		}
+		}}
 	},
 	getPlayed: async function(req,res){
 		var datetoday = new Date();
@@ -85,8 +87,7 @@ const game = {
 		User.updateOne(myquery, incvalues, function(err, res) {
 			if (err) throw err;
 			console.log("values updated");
-		});
-	}
+		});}
 }
 
 module.exports = game;
