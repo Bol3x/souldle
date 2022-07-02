@@ -3,14 +3,13 @@ const Answer = require('../database/models/Answer.js');
 const auth = require('../controller/check-authentication.js');
 const game = {
 	getGame: async function (req, res){
-		const user = await User.findOne({name: req.session.name}, 'avatar item_collection')
-		.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'})
-		.populate({path: 'item_collection.weapons'}).populate({path: 'item_collection.hats'});
+		const user = await User.findOne({name: req.session.name}, 'avatar')
+		.populate({path: 'avatar.hat'}).populate({path: 'avatar.weapon'});
 		if (user != null){
-		avatar = user.avatar;
-		res.render('game', {avatar});}
+			avatar = user.avatar;
+			res.render('game', {avatar});}
 		else
-		res.render('game', {avatar : null});
+			res.render('game', {avatar : null});
 	},
 	uploadAnswer: function(req,res){
 		var datetoday = new Date();
