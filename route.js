@@ -54,15 +54,15 @@ app.post('/delete', isPrivate, modify.getDeleteAccount);
 app.post('/change', isPrivate, modify.getChangePassword); 
 
 //login page
-app.get('/login', controller.getLogin);
+app.get('/login',  isPublic, controller.getLogin);
 app.get('/login', isPublic, (req, res) => {res.render('login', {pageTitle: 'Login',});});
 
 //register page
 app.get('/Register', isPublic, (req, res) => {res.render('register', { pageTitle: 'Registration',});});
 
 //Post methods for form submissions
-app.post('/Register', isPublic, registerValidation, usercontroller.registerUser);
-app.post('/login', isPublic, loginValidation, usercontroller.loginUser);
+app.post('/Register', registerValidation, usercontroller.registerUser);
+app.post('/login', loginValidation, usercontroller.loginUser);
 
 //logout
 app.get('/logout', isPrivate, usercontroller.logoutUser);

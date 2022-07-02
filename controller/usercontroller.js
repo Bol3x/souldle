@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const Item = require('../database/models/Item.js')
 const User = require('../database/models/User.js');
 const { validationResult } = require('express-validator');
@@ -45,7 +45,7 @@ const register = {
 			const saltRounds = 10;
 
 			// Hash password
-			bcrypt.hash(password, saltRounds, async (err, hashed) => {
+			bcryptjs.hash(password, saltRounds, async (err, hashed) => {
 				const newUser = {
 				name: name,
 				password: hashed
@@ -110,7 +110,7 @@ loginUser : (req, res) => {
 
 		  // next block of code goes here
 		  // Check password with hashed value in the database
-			bcrypt.compare(password, user.password, (err, result) => {
+			bcryptjs.compare(password, user.password, (err, result) => {
 			  // passwords match (result == true)
 			  if (result) {
 				// Update session object once matched!

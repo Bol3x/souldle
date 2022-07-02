@@ -1,5 +1,5 @@
 const User = require('../database/models/User.js');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 const modify = {
 	getDeleteAccount : async function(req, res) {
@@ -9,7 +9,7 @@ const modify = {
 		
 		const user = await User.findOne({name : req.session.name});
 		
-		bcrypt.compare(pass, user.password, function(err,result){
+		bcryptjs.compare(pass, user.password, function(err,result){
 			if (result) {
 				User.deleteOne(user, function(err,res) {
 					if (err) 
@@ -40,7 +40,7 @@ const modify = {
 		
 		const user = await User.findOne({name : req.session.name});
 		
-		const newpass = await bcrypt.hash(pass, 10);
+		const newpass = await bcryptjs.hash(pass, 10);
 		
 		if(pass == confirmpass) {
 			User.updateOne(user, {$set: {password : newpass}}, function(err, result) {
