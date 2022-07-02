@@ -1,6 +1,7 @@
 @import "theme.css";
 @import "menubtn.css";
 @import "helpmodal.css";
+@import "gameAvatar.css";
 
 #content{
 	width: 800px;
