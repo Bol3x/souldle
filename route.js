@@ -55,10 +55,9 @@ app.post('/change', isPrivate, modify.getChangePassword);
 
 //login page
 app.get('/login',  isPublic, controller.getLogin);
-app.get('/login', isPublic, (req, res) => {res.render('login', {pageTitle: 'Login',});});
 
 //register page
-app.get('/Register', isPublic, (req, res) => {res.render('register', { pageTitle: 'Registration',});});
+app.get('/Register', isPublic, controller.getRegister);
 
 //Post methods for form submissions
 app.post('/Register', registerValidation, usercontroller.registerUser);

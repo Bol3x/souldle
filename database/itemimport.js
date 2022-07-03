@@ -1,5 +1,9 @@
+//MAKE SURE TO RUN ONLY ONCE
+
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/souldletestdb")
+
+//change database URL depending on db location
+mongoose.connect("mongodb://localhost/souldletestdb")
 
 const Item = require('./models/Item')
 

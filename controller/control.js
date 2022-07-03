@@ -18,6 +18,10 @@ const controller = {
 	getLogin : function(req, res){
 		res.render('login');
 	},
+
+	getRegister : function(req,res){
+		res.render('Register');
+	},
 	
 	getAccountSettings : function(req, res){
 		res.render('account_settings');
