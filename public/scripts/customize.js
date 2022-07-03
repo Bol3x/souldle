@@ -61,10 +61,10 @@ $(document).ready(function () {
 				console.log(textStatus);
 				$('#response').text('Successfully Saved.');
 			}
-		);
-	}).fail(function(){
-		$('#response').text('Successfully Saved.');
-		$('#response').css('color', 'red');
+		).fail(function(){
+			$('#response').text('Successfully Saved.');
+			$('#response').css('color', 'red');
+		});
 	});
 
 });
