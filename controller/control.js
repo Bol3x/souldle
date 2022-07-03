@@ -1,7 +1,7 @@
 const User = require('../database/models/User.js');
 const Item = require('../database/models/Item.js');
 const auth = require('../controller/check-authentication.js');
-
+const Answer = require('../database/models/Answer.js');
 const controller = {
 	getIndex: function(req,res){
 		res.render('index');
