@@ -11,8 +11,12 @@ const controller = {
 		res.render('game');
 	},
 	
-	getHome: function (req,res){
-		res.render('home');
+	getHome: async function (req,res){
+		const played = await Answer.findOne({from: req.session.name});
+		var answer;
+		if (played == null)answer = "AVAILABLE";else answer = "UNAVAILABLE";
+		const user = await User.findOne({name: req.session.name});
+		res.render('home', {answer: answer,souls:user.souls});
 	},
 	
 	getLogin : function(req, res){
