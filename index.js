@@ -67,19 +67,23 @@ function generateAnswerKey(){
 
 function resetAnswers(){
 	console.log("refreshing answers...");
-	Answer.db.dropCollection("answers", function(err, result){
-		if (err){
-			console.log(err);
-		}
-		else console.log("Successfully reset answers.");
-	})
+	new Promise(function(resolve){
+		Answer.db.dropCollection("answers", function(err, result){
+			if (err){
+				console.log(err);
+			}
+			else console.log("Successfully reset answers.");
+		});
 
-	var key = generateAnswerKey();
-	console.log("key: " + key);
-	AnswerKey = Answer.create({answer: key, from: "Kami"});
-
-	for(var i=1; i<=3; i++)
-		Answer.create({answer: generateAnswerKey(), from: "Kamo"});
+		resolve();
+	}).then(function(){
+		var key = generateAnswerKey();
+		console.log("key: " + key);
+		AnswerKey = Answer.create({answer: key, from: "Kami"});
+	
+		for(var i=1; i<=3; i++)
+			Answer.create({answer: generateAnswerKey(), from: "Kamo"});
+	});
 }
 
 // server routes
