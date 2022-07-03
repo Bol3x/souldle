@@ -67,7 +67,6 @@ function generateAnswerKey(){
 
 function resetAnswers(){
 	console.log("refreshing answers...");
-	hour = new Date().getHours();
 	Answer.db.dropCollection("answers", function(err, result){
 		if (err){
 			console.log(err);
@@ -77,10 +76,10 @@ function resetAnswers(){
 
 	var key = generateAnswerKey();
 	console.log("key: " + key);
-	AnswerKey = Answer.create({answer: key, hour: hour, from: "Kami"});
+	AnswerKey = Answer.create({answer: key, from: "Kami"});
 
 	for(var i=1; i<=3; i++)
-		Answer.create({answer: generateAnswerKey(), hour: hour, from: "Kamo"});
+		Answer.create({answer: generateAnswerKey(), from: "Kamo"});
 }
 
 // server routes

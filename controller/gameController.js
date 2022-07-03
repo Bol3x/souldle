@@ -12,16 +12,12 @@ const game = {
 			res.render('game', {avatar : null});
 	},
 	uploadAnswer: function(req,res){
-		var datetoday = new Date();
-		var currentHour = datetoday.getHours();
         var tfrom = req.session.name;
         var tanswer = req.body.answer;
-        var thour = currentHour;
 		
         const ans = {
             answer: tanswer,
-            from: tfrom,
-            hour: thour
+            from: tfrom
         }
 		if (req.session.name != null)
 		{
@@ -37,11 +33,9 @@ const game = {
 		}}
 	},
 	getPlayed: async function(req,res){
-		var datetoday = new Date();
-		var currentHour = datetoday.getHours();
 		if (req.session.name != null)
 		{
-		const played = await Answer.findOne({from: req.session.name, hour : currentHour});
+		const played = await Answer.findOne({from: req.session.name});
 		if (played == null)
 			//we are good
 			res.send("OK");
