@@ -23,7 +23,6 @@ Users who are not registered to the server can still play Souldle, but will not 
 - Make sure **Node.js** and **MongoDB** are installed in the working computer
 	- MongoDB: https://www.mongodb.com/try/download/community
 	- Node.js: https://nodejs.org/en/download/
-- Once installed, update the [`.env`](/.env) file to change the **hostname, port number, and database URL** appropriately
 - Execute `node database/itemimport.js` first to apply all the existing items into the game.
 - Then, execute the command `node index.js` on your CLI to start the server.
 
@@ -34,7 +33,6 @@ Users who are not registered to the server can still play Souldle, but will not 
 - [`views`](/views) stores all the Embedded JavaScript (EJS) files and partials to be used by the server API for rendering webpages.
 - [`route.js`](/route.js) handles the server response for each client request based on the specific path requested.
 - [`index.js`](/index.js) is the main server application
-- [`.env`](/.env) handles the environment variables for where the server is to run on.
 
 ## Features
 - ### Game
