@@ -25,7 +25,7 @@
 
 			<form action="/play"><input type="submit" value="PLAY"></form> <br>
 			<div id="cooldown_timer">
-				<p id="try">ATTEMPT: AVAILABLE</p>
+				<p id="try">ATTEMPT: <%= answer %></p>
 				<p>RESETS IN: 0:59:59</p>
 			</div>
 		</div>
@@ -33,14 +33,14 @@
 		<div class="break"><br></div>
 		
 		<div class="optionbox" id="customize">
-			<h2>CUSOTMIZE</h2><br>
+			<h2>CUSTOMIZE</h2><br>
 
 			<div id="avatar">
 				<img src="/public/assets/avatar.svg" id="menu_avatar">
 			</div>
 
-			<div id="soulcount">
-				<p>Souls: 9999</p>
+			<div >
+				<p id="soulcount">Souls: <%= souls %></p>
 			</div>
 
 			<div id="store">
