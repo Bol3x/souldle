@@ -27,6 +27,7 @@ app.use('/public', express.static((process.env.PWD || __dirname) + '/public'));
 PORT = process.env.PORT || 3000;
 app.listen(PORT, function(){
 	console.log("server is running at port: " + PORT);
+	resetAnswers();
 });
 
 // Sessions
@@ -51,7 +52,6 @@ app.use((req, res, next) => {
 // automated answer processes for game
 
 //run on startup
-resetAnswers();
 cron.schedule("0 * * * *", function(){
 	//script will run every hour
 	resetAnswers();
