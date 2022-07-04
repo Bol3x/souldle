@@ -66,6 +66,6 @@ app.post('/login', loginValidation, usercontroller.loginUser);
 //logout
 app.get('/logout', isPrivate, usercontroller.logoutUser);
 
-app.all('*', controller.get404);
+//app.all('*', controller.get404);
 
 module.exports = app;
