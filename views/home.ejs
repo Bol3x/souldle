@@ -23,7 +23,11 @@
 				</div>
 			</div>
 
-			<form action="/play"><input type="submit" value="PLAY"></form> <br>
+			<form action="/play"><input type="submit" value="PLAY" 
+				<%if (answer == "UNAVAILABLE"){%> 
+				disabled
+				<%}%>
+				></form> <br>
 			<div id="cooldown_timer">
 				<p id="try">ATTEMPT: 
 					<% if (answer == "AVAILABLE"){ %>
