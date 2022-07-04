@@ -67,23 +67,21 @@ function generateAnswerKey(){
 
 function resetAnswers(){
 	console.log("refreshing answers...");
-	new Promise(function(resolve){
 		Answer.db.dropCollection("answers", function(err, result){
 			if (err){
 				console.log(err);
 			}
-			else console.log("Successfully reset answers.");
-		});
+			else {
+				console.log("Successfully reset answers.");
 
-		resolve();
-	}).then(function(){
-		var key = generateAnswerKey();
-		console.log("key: " + key);
-		AnswerKey = Answer.create({answer: key, from: "Kami"});
-	
-		for(var i=1; i<=3; i++)
-			Answer.create({answer: generateAnswerKey(), from: "Kamo"});
-	});
+				var key = generateAnswerKey();
+				console.log("key: " + key);
+				AnswerKey = Answer.create({answer: key, from: "Kami"});
+			
+				for(var i=1; i<=3; i++)
+					Answer.create({answer: generateAnswerKey(), from: "Kamo"});
+			}
+		});
 }
 
 // server routes
