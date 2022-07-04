@@ -61,13 +61,15 @@ $(document).ready(function () {
 				console.log(textStatus);
 				$('#response').text('Successfully Saved.');
 			}
-		);
-	})
+		).fail(function(){
+			$('#response').text('Successfully Saved.');
+			$('#response').css('color', 'red');
+		});
+	});
 
 });
 
 //returns a JSON file containing the name of the items to be saved
 saveChanges = () => {
-	//newHead = $('.head').data('name') === '' ? null : $('.head').data('name');
 	return ({weapon: $('.weapon').data('name'), head: $('.head').data('name')});
 }

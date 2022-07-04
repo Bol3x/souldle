@@ -13,16 +13,16 @@
 
 			<div id="left">
 				<div id="avatar">
-					<img id="base" src="/public/assets/base.svg">
+					<img id="base" src="/public/asset/base.svg">
 					<img    class="weapon" 
 							id="<%= avatar.weapon.item_type %>" 
-							src="/public/assets/Weapons/<%= avatar.weapon.file_name %>"
+							src="/public/asset/Weapons/<%= avatar.weapon.file_name %>"
 							data-name="<%= avatar.weapon.item_name%>"
 						>
 					<% if (avatar.hat !== null){ %>
 					<img    class="head" 
 							id="<%= avatar.hat.item_type %>" 
-							src="/public/assets/Hats/<%= avatar.hat.file_name %>"
+							src="/public/asset/Hats/<%= avatar.hat.file_name %>"
 							data-name="<%= avatar.hat.item_name%>"
 						>
 					<% }else{ %>
@@ -39,7 +39,7 @@
 				<div class="subbox" id="weaponbox">
 					<% weapons.forEach(weapon => { %>
 						<button class="item weaponslot" name="<%=weapon.item_name%>" id="<%=weapon.item_type%>">
-							<img src="/public/assets/Weapons/<%=weapon.file_name%>"/>
+							<img src="/public/asset/Weapons/<%=weapon.file_name%>"/>
 						</button>
 					<% }) %>
 				</div>
@@ -50,7 +50,7 @@
 				<div class="subbox" id="hatbox">
 					<% heads.forEach(head => { %>
 						<button class="item headslot" name="<%=head.item_name%>" id="<%=head.item_type%>">
-							<img src="/public/assets/Hats/<%=head.file_name%>"/>
+							<img src="/public/asset/Hats/<%=head.file_name%>"/>
 						</button>
 					<% }) %>
 					

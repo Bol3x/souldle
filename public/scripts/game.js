@@ -94,14 +94,12 @@ $(document).ready(function() {
 			window.location.href = '/home';
 		}
 	});
-	var datetoday = new Date();
-	var currentHour = datetoday.getHours();
 	var guess, correctstring;
 	
 	//obtain guess and correctanswer from database
-	$.get('game/guess', {from: {$ne:'Kami'}, hour : currentHour},
+	$.get('game/guess', {from: {$ne:'Kami'}},
 	function (thing){setzero(thing.message, msgarray);});
-	$.get('game/answer', {from: 'Kami', hour : currentHour},
+	$.get('game/answer', {from: 'Kami'},
 	function(thing){setOne(thing.message, msgarray);});	
 	//make an onclick function for each action button
 	$("#c1").click(function(){

@@ -20,14 +20,14 @@ app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.set('views', 'view');   //set engine to look for ejs files in view
 
-//path for static file (html, css, asset) serving
-app.use(express.static(__dirname + '/view/'));
-app.use('/public', express.static(__dirname + '/public/'));
+//path for static file (css, asset, client-side script) serving
+app.use('/public', express.static((process.env.PWD || __dirname) + '/public'));
 
 //server start
 PORT = process.env.PORT || 3000;
 app.listen(PORT, function(){
 	console.log("server is running at port: " + PORT);
+	resetAnswers();
 });
 
 // Sessions
@@ -52,7 +52,6 @@ app.use((req, res, next) => {
 // automated answer processes for game
 
 //run on startup
-resetAnswers();
 cron.schedule("0 * * * *", function(){
 	//script will run every hour
 	resetAnswers();
@@ -68,20 +67,20 @@ function generateAnswerKey(){
 
 function resetAnswers(){
 	console.log("refreshing answers...");
-	hour = new Date().getHours();
-	Answer.db.dropCollection("answers", function(err, result){
-		if (err){
-			console.log(err);
-		}
-		else console.log("Successfully reset answers.");
-	})
+		Answer.db.dropCollection("answers", function(err, result){
+			if (err){
+				console.log(err);
+			}
+			else {
+				console.log("Successfully reset answers.");
 
-	var key = generateAnswerKey();
-	console.log("key: " + key);
-	AnswerKey = Answer.create({answer: key, hour: hour, from: "Kami"});
-
-	for(var i=1; i<=3; i++)
-		Answer.create({answer: generateAnswerKey(), hour: hour, from: "Kamo"});
+				var key = generateAnswerKey();
+				console.log("key: " + key);
+				AnswerKey = Answer.create({answer: key, from: "Kami"});
+			
+				Answer.create({answer: generateAnswerKey(), from: "Kamo"});
+			}
+		});
 }
 
 // server routes

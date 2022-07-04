@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const AnswerSchema = new Schema({
 	answer : {type: String, required: true, max: 5},
-    from : {type: String, max: 20},
-	hour : {type: Number, min:0, max:23, required: true}
+    from : {type: String, max: 20}
 });
 
 module.exports = mongoose.model('Answer', AnswerSchema);

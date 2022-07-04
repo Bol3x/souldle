@@ -31,12 +31,10 @@ $(document).ready(function () {
             function (data, textStatus, jqXHR) {
                 $('#buy').text(data.message);
                 $('#buy').attr('disabled', true);
-                $('#buy').css('color', 'green').css('border-color', 'green');
+                $('#buy').css('color', 'green').css('border-color', 'green').css('background-color', 'rgb(46, 46, 46)').text("Item Purchased");
 
                 $('#soulcount').text("Souls: " + data.souls);
                 $('#'+name).remove();
-                $('#buy').css('color', 'red').css('border-color', 'red');
-                $('#buy').css('background-color', 'rgb(46, 46, 46)');
             }
         ).fail(() => {
             $('#buy').css('color', 'red').css('border-color', 'red')

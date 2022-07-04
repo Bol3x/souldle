@@ -1,48 +1,48 @@
 #hat0{
 	background-color: grey;
-	background: url("..//public/assets/Hats/Viking.svg") no-repeat;
+	background: url("..//public/asset/Hats/Viking.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #hat1{
 	background-color: grey;
-	background: url("..//public/assets/Hats/crown.svg") no-repeat;
+	background: url("..//public/asset/Hats/crown.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #hat2{
 	background-color: grey;
-	background: url("..//public/assets/Hats/DarkHelm.svg") no-repeat;
+	background: url("..//public/asset/Hats/DarkHelm.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #hat3{
 	background-color: grey;
-	background: url("..//public/assets/Hats/LightHelm.svg") no-repeat;
+	background: url("..//public/asset/Hats/LightHelm.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn0{
 	background-color: gray;
-	background: url("..//public/assets/Weapons/katana.svg") no-repeat;
+	background: url("..//public/asset/Weapons/katana.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn1{
 	background-color: gray;
-	background: url("..//public/assets/Weapons/axe.svg") no-repeat;
+	background: url("..//public/asset/Weapons/axe.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn2{
 	background-color: gray;
-	background: url("..//public/assets/Weapons/hammer.svg") no-repeat;
+	background: url("..//public/asset/Weapons/hammer.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }
 #wpn3{
 	background-color: gray;
-	background: url("..//public/assets/Weapons/scythe.svg") no-repeat;
+	background: url("..//public/asset/Weapons/scythe.svg") no-repeat;
 	background-size: contain;
 	background-position: center;
 }

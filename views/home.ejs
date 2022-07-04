@@ -12,21 +12,30 @@
 
 		<div id="game">
 			<div class="Bossbox">
-				<div id="skullhead"><img src="/public/assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
+				<div id="skullhead"><img src="/public/asset/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
 				<div id="hands">
 					<div id="righthand">
-						<img src="/public/assets/Boss/SkelHandRight.svg" alt="LH" width="120" height="110">
+						<img src="/public/asset/Boss/SkelHandRight.svg" alt="LH" width="120" height="110">
 					</div>
 					<div id="lefthand">
-						<img src="/public/assets/Boss/SkelHandLeft.svg" alt="RH" width="120" height="110">
+						<img src="/public/asset/Boss/SkelHandLeft.svg" alt="RH" width="120" height="110">
 					</div>
 				</div>
 			</div>
 
-			<form action="/play"><input type="submit" value="PLAY"></form> <br>
+			<form action="/play"><input type="submit" value="PLAY" 
+				<%if (answer == "UNAVAILABLE"){%> 
+				disabled
+				<%}%>
+				></form> <br>
 			<div id="cooldown_timer">
-				<p id="try">ATTEMPT: <%= answer %></p>
-				<p>RESETS IN: 0:59:59</p>
+				<p id="try">ATTEMPT: 
+					<% if (answer == "AVAILABLE"){ %>
+						<p style="color:green"><%= answer %></p>
+					<%} else { %>
+						<p style="color:red"><%= answer %></p>
+					<%} %>
+				</p>
 			</div>
 		</div>
 
@@ -36,7 +45,7 @@
 			<h2>CUSTOMIZE</h2><br>
 
 			<div id="avatar">
-				<img src="/public/assets/avatar.svg" id="menu_avatar">
+				<img src="/public/asset/avatar.svg" id="menu_avatar">
 			</div>
 
 			<div >
