@@ -78,8 +78,7 @@ function resetAnswers(){
 				console.log("key: " + key);
 				AnswerKey = Answer.create({answer: key, from: "Kami"});
 			
-				for(var i=1; i<=3; i++)
-					Answer.create({answer: generateAnswerKey(), from: "Kamo"});
+				Answer.create({answer: generateAnswerKey(), from: "Kamo"});
 			}
 		});
 }
