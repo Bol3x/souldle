@@ -13,38 +13,38 @@
 
 	<div id="content">
 		<div class="Bossbox">
-			<div id="skullhead"><img src="/public/assets/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
+			<div id="skullhead"><img src="/public/asset/Boss/SkeletonHead.svg" alt="Skull" width="156" height="204"></div>
 			<div id="hands">
 				<div id="righthand">
-					<img src="/public/assets/Boss/SkelHandRight.svg" alt="LH" width="120" height="110">
+					<img src="/public/asset/Boss/righthand.svg" alt="RH" width="120" height="110">
 				</div>
 				<div id="lefthand">
-					<img src="/public/assets/Boss/SkelHandLeft.svg" alt="RH" width="120" height="110">
+					<img src="/public/asset/Boss/SkelHandLeft.svg" alt="LH" width="120" height="110">
 				</div>
 			</div>
 		</div>
 		<div id="avatar">
 					<% if (avatar !== null){ %>
-					<img id="base" src="/public/assets/base.svg">
+					<img id="base" src="/public/asset/base.svg">
 					<img    class="weapon" 
 							id="<%= avatar.weapon.item_type %>" 
-							src="/public/assets/Weapons/<%= avatar.weapon.file_name %>"
+							src="/public/asset/Weapons/<%= avatar.weapon.file_name %>"
 							data-name="<%= avatar.weapon.item_name%>"
 						>
 					<% if (avatar.hat !== null){ %>
 					<img    class="head" 
 							id="<%= avatar.hat.item_type %>" 
-							src="/public/assets/Hats/<%= avatar.hat.file_name %>"
+							src="/public/asset/Hats/<%= avatar.hat.file_name %>"
 							data-name="<%= avatar.hat.item_name%>"
 						>
 					<% }else{ %>
 					<img	class="head">
 					<% } %>
 					<% }else{ %>
-					<img id="base" src="/public/assets/base.svg">
+					<img id="base" src="/public/asset/base.svg">
 					<img    class="weapon" 
 							id="shorthandle" 
-							src="/public/assets/Weapons/sword.svg"
+							src="/public/asset/Weapons/sword.svg"
 							data-name="sword"
 						>
 					<img	class="head">
@@ -78,15 +78,15 @@
 
 		<div class="actionbox">
 			<div class="actions">
-				<button class="button" id="a"> <img src="/public/assets/Icons/AttackIcon.svg" alt="Attack" width="100"
+				<button class="button" id="a"> <img src="/public/asset/Icons/AttackIcon.svg" alt="Attack" width="100"
 						height="100"> </button>
-				<button class="button" id="b"> <img src="/public/assets/Icons/DefendIcon.svg" alt="Defend" width="100"
+				<button class="button" id="b"> <img src="/public/asset/Icons/DefendIcon.svg" alt="Defend" width="100"
 						height="100"> </button>
-				<button class="button" id="c"> <img src="/public/assets/Icons/DodgeIcon.svg" alt="Dodge" width="100"
+				<button class="button" id="c"> <img src="/public/asset/Icons/DodgeIcon.svg" alt="Dodge" width="100"
 						height="100"> </button>
-				<button class="button" id="d"> <img src="/public/assets/Icons/MagicIcon.svg" alt="Magic" width="100"
+				<button class="button" id="d"> <img src="/public/asset/Icons/MagicIcon.svg" alt="Magic" width="100"
 						height="100"> </button>
-				<button class="button" id="e"> <img src="/public/assets/Icons/PotionIcon.svg" alt="Potion" width="100"
+				<button class="button" id="e"> <img src="/public/asset/Icons/PotionIcon.svg" alt="Potion" width="100"
 						height="100"> </button>
 			</div>
 		</div>

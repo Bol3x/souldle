@@ -27,14 +27,14 @@
 }
 
 h1{
-	background-image: url('/public/assets/[svg]textbox.svg');
+	background-image: url('/public/asset/textbox.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-size: 43px;
 	font-weight: bold;
 }
 .statistics{
-	background-image: url('/public/assets/[svg]textbox.svg');
+	background-image: url('/public/asset/textbox.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 200px;
